@@ -69,8 +69,8 @@ void loop() {
   float finaltemp=temp+14.0;
   Serial.print(temp+14.0);
 
-  StaticJsonBuffer<300> JSONbuffer;   //Declaring static JSON buffer
-    JsonObject& JSONencoder = JSONbuffer.createObject(); 
+//  StaticJsonBuffer<300> JSONbuffer;   //Declaring static JSON buffer
+//    JsonObject& JSONencoder = JSONbuffer.createObject(); 
  
    String json="{\n\""+String(counter)+"\" : "+finaltemp+"\n}";
     Serial.print(json);
@@ -79,9 +79,9 @@ void loop() {
  
    
  
-    char JSONmessageBuffer[300];
-    JSONencoder.prettyPrintTo(JSONmessageBuffer, sizeof(JSONmessageBuffer));
-    Serial.println(JSONmessageBuffer);
+//    char JSONmessageBuffer[300];
+//    JSONencoder.prettyPrintTo(JSONmessageBuffer, sizeof(JSONmessageBuffer));
+//    Serial.println(JSONmessageBuffer);
    HTTPClient http;   
  
    http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment1.json");  //Specify destination for HTTP request
@@ -106,6 +106,30 @@ void loop() {
    }
  
    http.end();  //Free resources
+
+
+    json="{\n\"totalDataPoints\" : "+String(counter)+"\n}";
+   http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment1/information.json");  //Specify destination for HTTP request
+   http.addHeader("Content-Type", "application/json");             //Specify content-type header
+ 
+   httpResponseCode = http.sendRequest("PUT", json);   //Send the actual POST request
+
+   delay(1000);
+ 
+   if(httpResponseCode>0){
+ 
+    String response = http.getString();                       //Get the response to the request
+ 
+    Serial.println(httpResponseCode);   //Print return code
+    Serial.println(response);           //Print request answer
+ 
+   }else{
+ 
+    Serial.print("Error on sending POST: ");
+    Serial.println(httpResponseCode);
+ 
+   }
+   
  
  }else{
    digitalWrite(WifiLedIndicator, LOW);
