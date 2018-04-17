@@ -18,7 +18,6 @@
 		9C82EF71207FAEF400CBA237 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C82EF70207FAEF400CBA237 /* CoreBluetooth.framework */; };
 		9CEE453C20812B78000A695A /* ScanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE453B20812B78000A695A /* ScanTableViewController.swift */; };
 		9CEE453E20812FFF000A695A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE453D20812FFE000A695A /* MainViewController.swift */; };
-		9CF3367B2034BD5700AEA484 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF3367A2034BD5700AEA484 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +58,6 @@
 		9C82EF70207FAEF400CBA237 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		9CEE453B20812B78000A695A /* ScanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTableViewController.swift; sourceTree = "<group>"; };
 		9CEE453D20812FFE000A695A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		9CF3367A2034BD5700AEA484 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +133,6 @@
 			children = (
 				9CEE453D20812FFE000A695A /* MainViewController.swift */,
 				9CEE453B20812B78000A695A /* ScanTableViewController.swift */,
-				9CF3367A2034BD5700AEA484 /* GoogleService-Info.plist */,
 				9C757B971FCD7BB100B2CB44 /* AppDelegate.swift */,
 				9C757B991FCD7BB100B2CB44 /* ViewController.swift */,
 				9C757B9B1FCD7BB100B2CB44 /* Main.storyboard */,
@@ -176,7 +173,6 @@
 				9C757B911FCD7BB100B2CB44 /* Frameworks */,
 				9C757B921FCD7BB100B2CB44 /* Resources */,
 				B6B3F163C078563BD66FC1E4 /* [CP] Embed Pods Frameworks */,
-				60FB41EE8931508EF60475F4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C757BA21FCD7BB100B2CB44 /* LaunchScreen.storyboard in Resources */,
-				9CF3367B2034BD5700AEA484 /* GoogleService-Info.plist in Resources */,
 				9C757B9F1FCD7BB100B2CB44 /* Assets.xcassets in Resources */,
 				9C757B9D1FCD7BB100B2CB44 /* Main.storyboard in Resources */,
 			);
@@ -303,21 +298,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		60FB41EE8931508EF60475F4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartBbq/Pods-SmartBbq-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8F7B3D620A8D6282F56D4F11 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
