@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A21148BB2F49249E4D7818D /* Pods_SmartBbq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765C829D12918ECCB729BAAF /* Pods_SmartBbq.framework */; };
+		9C757B981FCD7BB100B2CB44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C757B971FCD7BB100B2CB44 /* AppDelegate.swift */; };
+		9C757B9A1FCD7BB100B2CB44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C757B991FCD7BB100B2CB44 /* ViewController.swift */; };
+		9C757B9D1FCD7BB100B2CB44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C757B9B1FCD7BB100B2CB44 /* Main.storyboard */; };
+		9C757B9F1FCD7BB100B2CB44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C757B9E1FCD7BB100B2CB44 /* Assets.xcassets */; };
+		9C757BA21FCD7BB100B2CB44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C757BA01FCD7BB100B2CB44 /* LaunchScreen.storyboard */; };
+		9C757BAD1FCD7BB100B2CB44 /* SmartBbqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C757BAC1FCD7BB100B2CB44 /* SmartBbqTests.swift */; };
+		9C757BB81FCD7BB100B2CB44 /* SmartBbqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C757BB71FCD7BB100B2CB44 /* SmartBbqUITests.swift */; };
+		9C82EF71207FAEF400CBA237 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C82EF70207FAEF400CBA237 /* CoreBluetooth.framework */; };
+		9CEE453C20812B78000A695A /* ScanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE453B20812B78000A695A /* ScanTableViewController.swift */; };
+		9CEE453E20812FFF000A695A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE453D20812FFE000A695A /* MainViewController.swift */; };
+		9CF3367B2034BD5700AEA484 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF3367A2034BD5700AEA484 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C757BA91FCD7BB100B2CB44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C757B8C1FCD7BB100B2CB44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C757B931FCD7BB100B2CB44;
+			remoteInfo = SmartBbq;
+		};
+		9C757BB41FCD7BB100B2CB44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C757B8C1FCD7BB100B2CB44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C757B931FCD7BB100B2CB44;
+			remoteInfo = SmartBbq;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		33BE9C6BA00EB37C0F25330C /* Pods-SmartBbq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBbq.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBbq/Pods-SmartBbq.debug.xcconfig"; sourceTree = "<group>"; };
+		3518164C17A5E2E64A9D93A7 /* Pods-SmartBbq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBbq.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBbq/Pods-SmartBbq.release.xcconfig"; sourceTree = "<group>"; };
+		765C829D12918ECCB729BAAF /* Pods_SmartBbq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartBbq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C757B941FCD7BB100B2CB44 /* SmartBbq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartBbq.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C757B971FCD7BB100B2CB44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9C757B991FCD7BB100B2CB44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9C757B9C1FCD7BB100B2CB44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9C757B9E1FCD7BB100B2CB44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9C757BA11FCD7BB100B2CB44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9C757BA31FCD7BB100B2CB44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C757BA81FCD7BB100B2CB44 /* SmartBbqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartBbqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C757BAC1FCD7BB100B2CB44 /* SmartBbqTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartBbqTests.swift; sourceTree = "<group>"; };
+		9C757BAE1FCD7BB100B2CB44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C757BB31FCD7BB100B2CB44 /* SmartBbqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartBbqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C757BB71FCD7BB100B2CB44 /* SmartBbqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartBbqUITests.swift; sourceTree = "<group>"; };
+		9C757BB91FCD7BB100B2CB44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C82EF6C207FAEDD00CBA237 /* BlueCapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BlueCapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C82EF70207FAEF400CBA237 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		9CEE453B20812B78000A695A /* ScanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTableViewController.swift; sourceTree = "<group>"; };
+		9CEE453D20812FFE000A695A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9CF3367A2034BD5700AEA484 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C757B911FCD7BB100B2CB44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C82EF71207FAEF400CBA237 /* CoreBluetooth.framework in Frameworks */,
+				3A21148BB2F49249E4D7818D /* Pods_SmartBbq.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C757BA51FCD7BB100B2CB44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C757BB01FCD7BB100B2CB44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		225E8EBCFEFE4FAAE58F3740 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				33BE9C6BA00EB37C0F25330C /* Pods-SmartBbq.debug.xcconfig */,
+				3518164C17A5E2E64A9D93A7 /* Pods-SmartBbq.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		999F51882387D2F69F9855A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C82EF70207FAEF400CBA237 /* CoreBluetooth.framework */,
+				765C829D12918ECCB729BAAF /* Pods_SmartBbq.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C757B8B1FCD7BB100B2CB44 = {
+			isa = PBXGroup;
+			children = (
+				9C82EF6C207FAEDD00CBA237 /* BlueCapKit.framework */,
+				9C757B961FCD7BB100B2CB44 /* SmartBbq */,
+				9C757BAB1FCD7BB100B2CB44 /* SmartBbqTests */,
+				9C757BB61FCD7BB100B2CB44 /* SmartBbqUITests */,
+				9C757B951FCD7BB100B2CB44 /* Products */,
+				225E8EBCFEFE4FAAE58F3740 /* Pods */,
+				999F51882387D2F69F9855A5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9C757B951FCD7BB100B2CB44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C757B941FCD7BB100B2CB44 /* SmartBbq.app */,
+				9C757BA81FCD7BB100B2CB44 /* SmartBbqTests.xctest */,
+				9C757BB31FCD7BB100B2CB44 /* SmartBbqUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C757B961FCD7BB100B2CB44 /* SmartBbq */ = {
+			isa = PBXGroup;
+			children = (
+				9CEE453D20812FFE000A695A /* MainViewController.swift */,
+				9CEE453B20812B78000A695A /* ScanTableViewController.swift */,
+				9CF3367A2034BD5700AEA484 /* GoogleService-Info.plist */,
+				9C757B971FCD7BB100B2CB44 /* AppDelegate.swift */,
+				9C757B991FCD7BB100B2CB44 /* ViewController.swift */,
+				9C757B9B1FCD7BB100B2CB44 /* Main.storyboard */,
+				9C757B9E1FCD7BB100B2CB44 /* Assets.xcassets */,
+				9C757BA01FCD7BB100B2CB44 /* LaunchScreen.storyboard */,
+				9C757BA31FCD7BB100B2CB44 /* Info.plist */,
+			);
+			path = SmartBbq;
+			sourceTree = "<group>";
+		};
+		9C757BAB1FCD7BB100B2CB44 /* SmartBbqTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C757BAC1FCD7BB100B2CB44 /* SmartBbqTests.swift */,
+				9C757BAE1FCD7BB100B2CB44 /* Info.plist */,
+			);
+			path = SmartBbqTests;
+			sourceTree = "<group>";
+		};
+		9C757BB61FCD7BB100B2CB44 /* SmartBbqUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9C757BB71FCD7BB100B2CB44 /* SmartBbqUITests.swift */,
+				9C757BB91FCD7BB100B2CB44 /* Info.plist */,
+			);
+			path = SmartBbqUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C757B931FCD7BB100B2CB44 /* SmartBbq */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C757BBC1FCD7BB100B2CB44 /* Build configuration list for PBXNativeTarget "SmartBbq" */;
+			buildPhases = (
+				8F7B3D620A8D6282F56D4F11 /* [CP] Check Pods Manifest.lock */,
+				9C757B901FCD7BB100B2CB44 /* Sources */,
+				9C757B911FCD7BB100B2CB44 /* Frameworks */,
+				9C757B921FCD7BB100B2CB44 /* Resources */,
+				B6B3F163C078563BD66FC1E4 /* [CP] Embed Pods Frameworks */,
+				60FB41EE8931508EF60475F4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartBbq;
+			productName = SmartBbq;
+			productReference = 9C757B941FCD7BB100B2CB44 /* SmartBbq.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9C757BA71FCD7BB100B2CB44 /* SmartBbqTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C757BBF1FCD7BB100B2CB44 /* Build configuration list for PBXNativeTarget "SmartBbqTests" */;
+			buildPhases = (
+				9C757BA41FCD7BB100B2CB44 /* Sources */,
+				9C757BA51FCD7BB100B2CB44 /* Frameworks */,
+				9C757BA61FCD7BB100B2CB44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C757BAA1FCD7BB100B2CB44 /* PBXTargetDependency */,
+			);
+			name = SmartBbqTests;
+			productName = SmartBbqTests;
+			productReference = 9C757BA81FCD7BB100B2CB44 /* SmartBbqTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9C757BB21FCD7BB100B2CB44 /* SmartBbqUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C757BC21FCD7BB100B2CB44 /* Build configuration list for PBXNativeTarget "SmartBbqUITests" */;
+			buildPhases = (
+				9C757BAF1FCD7BB100B2CB44 /* Sources */,
+				9C757BB01FCD7BB100B2CB44 /* Frameworks */,
+				9C757BB11FCD7BB100B2CB44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C757BB51FCD7BB100B2CB44 /* PBXTargetDependency */,
+			);
+			name = SmartBbqUITests;
+			productName = SmartBbqUITests;
+			productReference = 9C757BB31FCD7BB100B2CB44 /* SmartBbqUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C757B8C1FCD7BB100B2CB44 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = Vigram;
+				TargetAttributes = {
+					9C757B931FCD7BB100B2CB44 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					9C757BA71FCD7BB100B2CB44 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9C757B931FCD7BB100B2CB44;
+					};
+					9C757BB21FCD7BB100B2CB44 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9C757B931FCD7BB100B2CB44;
+					};
+				};
+			};
+			buildConfigurationList = 9C757B8F1FCD7BB100B2CB44 /* Build configuration list for PBXProject "SmartBbq" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9C757B8B1FCD7BB100B2CB44;
+			productRefGroup = 9C757B951FCD7BB100B2CB44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C757B931FCD7BB100B2CB44 /* SmartBbq */,
+				9C757BA71FCD7BB100B2CB44 /* SmartBbqTests */,
+				9C757BB21FCD7BB100B2CB44 /* SmartBbqUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C757B921FCD7BB100B2CB44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C757BA21FCD7BB100B2CB44 /* LaunchScreen.storyboard in Resources */,
+				9CF3367B2034BD5700AEA484 /* GoogleService-Info.plist in Resources */,
+				9C757B9F1FCD7BB100B2CB44 /* Assets.xcassets in Resources */,
+				9C757B9D1FCD7BB100B2CB44 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C757BA61FCD7BB100B2CB44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C757BB11FCD7BB100B2CB44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		60FB41EE8931508EF60475F4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartBbq/Pods-SmartBbq-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F7B3D620A8D6282F56D4F11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartBbq-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6B3F163C078563BD66FC1E4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SmartBbq/Pods-SmartBbq-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BlueCapKit/BlueCapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlueCapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartBbq/Pods-SmartBbq-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C757B901FCD7BB100B2CB44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CEE453C20812B78000A695A /* ScanTableViewController.swift in Sources */,
+				9C757B9A1FCD7BB100B2CB44 /* ViewController.swift in Sources */,
+				9C757B981FCD7BB100B2CB44 /* AppDelegate.swift in Sources */,
+				9CEE453E20812FFF000A695A /* MainViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C757BA41FCD7BB100B2CB44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C757BAD1FCD7BB100B2CB44 /* SmartBbqTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C757BAF1FCD7BB100B2CB44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C757BB81FCD7BB100B2CB44 /* SmartBbqUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C757BAA1FCD7BB100B2CB44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C757B931FCD7BB100B2CB44 /* SmartBbq */;
+			targetProxy = 9C757BA91FCD7BB100B2CB44 /* PBXContainerItemProxy */;
+		};
+		9C757BB51FCD7BB100B2CB44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C757B931FCD7BB100B2CB44 /* SmartBbq */;
+			targetProxy = 9C757BB41FCD7BB100B2CB44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9C757B9B1FCD7BB100B2CB44 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C757B9C1FCD7BB100B2CB44 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9C757BA01FCD7BB100B2CB44 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C757BA11FCD7BB100B2CB44 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9C757BBA1FCD7BB100B2CB44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9C757BBB1FCD7BB100B2CB44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9C757BBD1FCD7BB100B2CB44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33BE9C6BA00EB37C0F25330C /* Pods-SmartBbq.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MGVD655UUD;
+				INFOPLIST_FILE = SmartBbq/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vigram.SmartBbq;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9C757BBE1FCD7BB100B2CB44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3518164C17A5E2E64A9D93A7 /* Pods-SmartBbq.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MGVD655UUD;
+				INFOPLIST_FILE = SmartBbq/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vigram.SmartBbq;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9C757BC01FCD7BB100B2CB44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SmartBbqTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vigram.SmartBbqTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartBbq.app/SmartBbq";
+			};
+			name = Debug;
+		};
+		9C757BC11FCD7BB100B2CB44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SmartBbqTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vigram.SmartBbqTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartBbq.app/SmartBbq";
+			};
+			name = Release;
+		};
+		9C757BC31FCD7BB100B2CB44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SmartBbqUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vigram.SmartBbqUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmartBbq;
+			};
+			name = Debug;
+		};
+		9C757BC41FCD7BB100B2CB44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SmartBbqUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vigram.SmartBbqUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmartBbq;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C757B8F1FCD7BB100B2CB44 /* Build configuration list for PBXProject "SmartBbq" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C757BBA1FCD7BB100B2CB44 /* Debug */,
+				9C757BBB1FCD7BB100B2CB44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C757BBC1FCD7BB100B2CB44 /* Build configuration list for PBXNativeTarget "SmartBbq" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C757BBD1FCD7BB100B2CB44 /* Debug */,
+				9C757BBE1FCD7BB100B2CB44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C757BBF1FCD7BB100B2CB44 /* Build configuration list for PBXNativeTarget "SmartBbqTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C757BC01FCD7BB100B2CB44 /* Debug */,
+				9C757BC11FCD7BB100B2CB44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C757BC21FCD7BB100B2CB44 /* Build configuration list for PBXNativeTarget "SmartBbqUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C757BC31FCD7BB100B2CB44 /* Debug */,
+				9C757BC41FCD7BB100B2CB44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C757B8C1FCD7BB100B2CB44 /* Project object */;
+}

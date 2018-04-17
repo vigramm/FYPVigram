@@ -1,0 +1,6 @@
+framework module Pods_SmartBbq {
+  umbrella header "Pods-SmartBbq-umbrella.h"
+
+  export *
+  module * { export * }
+}

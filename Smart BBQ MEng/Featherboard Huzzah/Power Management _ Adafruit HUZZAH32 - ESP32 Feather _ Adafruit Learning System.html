@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management -->
+<html lang="en-US" style="" class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js-ready gr__learn_adafruit_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.turbolinks-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}</style>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" media="screen" href="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/application-c3c18990db77f0e4c360656dc02389a76e8707a0faa143f27052c576a088d58b.css" data-turbolinks-track="reload">
+<script type="text/javascript" src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/308175db61"></script><script src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/nr-1071.min.js"></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/ec.js"></script><script type="text/javascript" async="" src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/analytics.js"></script><script src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/js"></script>
+<script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"308175db61","applicationID":"54271218","transactionName":"cVZXRUFeWghRShtEVlVcSh5AWVkT","queueTime":0,"applicationTime":32,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<!--[if lte IE 9]>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <![endif]-->
+<script>
+    window.rails_env = 'production';
+  </script>
+<script src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/application-84aef5a61c0f4b3c05be38141f44ae1c7d7e3d0c9607b2842bc15990bee9e923.js" data-turbolinks-track="reload"></script>
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "url": "https://learn.adafruit.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://learn.adafruit.com/search?q={search_term}",
+        "query-input": "required name=search_term"
+      }
+    }
+  </script>
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"308175db61","applicationID":"54271218","transactionName":"cVZXRUFeWghRShtVREFcTUIcQl4LQw==","queueTime":0,"applicationTime":17,"agent":""}</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"308175db61","applicationID":"54271218","transactionName":"cVZXRUFeWghRShtEVlVcSh5AWVkT","queueTime":0,"applicationTime":45,"agent":""}</script><link rel="mask-icon" href="https://learn.adafruit.com/assets/adafruit_favicon-d77f206e6cc65b40101b6e5b8987f7c35cb6a283ea73c0adad50c37f7347c61a.svg" color="#000000"><link rel="shortcut icon" type="image/x-icon" href="https://learn.adafruit.com/assets/favicon-0c79bd4bc582e6d4cf3afe417bd1e28120527c09d92c08a6464690c5bf6b85f4.ico"><title>Power Management | Adafruit HUZZAH32 - ESP32 Feather | Adafruit Learning System</title><meta name="csrf-param" content="authenticity_token"><meta name="csrf-token" content="f5ixti3r9nKMuygpytR7W/prnrKFhZ7UZ6k8U1QydVx2NgUbKa0tO57Rubv2xy00mNHSq+elRwY7unh887x6hg=="><link rel="alternate" type="application/atom+xml" title="ATOM" href="https://learn.adafruit.com/feed"><link rel="alternate" type="application/rss+xml" title="RSS" href="https://learn.adafruit.com/feed.rss"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"><meta name="turbolinks-cache-control" content="no-cache"><meta name="guide-title" content="Adafruit HUZZAH32 - ESP32 Feather"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@adafruit"><meta name="twitter:title" content="Adafruit HUZZAH32 - ESP32 Feather"><meta name="twitter:description" content="WiFi, Bluetooth, peripherals galore!"><meta name="twitter:image:src" content="https://cdn-learn.adafruit.com/guides/images/000/001/641/medium800/thumb.jpg"><meta name="twitter:domain" content="https://learn.adafruit.com"><link rel="canonical" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management"><meta http-equiv="X-UA-Compatible" content="IE=Edge"></head>
+<body class="application pages show">
+
+<noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRPXBQ6"
+  height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+
+<div id="outer-wrapper">
+<div id="inner-wrapper">
+<div id="messaging-wrapper" data-load="https://www.adafruit.com/api/multi_message.php"></div>
+<header id="adafruit-header">
+<div id="small-header-content" class="container visible-xs">
+<a id="small-header-menu-button" class="menu-link" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management#small-header-nav">
+<i class="fa fa-bars"> </i>
+</a>
+<div class="small-header-logo">
+<a href="https://www.adafruit.com/">
+<img id="small-logo" height="50" width="50" alt="Adafruit Logo" title="Adafruit Logo" src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/adafruit_logo_small.png">
+</a> </div>
+<a class="small-header-cart" href="https://www.adafruit.com/shopping_cart">
+<span class="small-cart-count">0</span>
+<i class="fa fa-shopping-cart"></i>
+</a> </div>
+<nav id="small-header-nav" role="navigation" class="visible-xs">
+<div class="block">
+<ul>
+<li>
+<div id="small-search-wrapper">
+<div id="small-search-inner-wrapper">
+<form action="https://learn.adafruit.com/search" method="get">
+<label for="mobile-search" style="display:none;">Search</label>
+<input id="mobile-search" type="text" name="q" placeholder="Search Adafruit">
+<i class="fa fa-search"></i>
+</form>
+</div>
+</div>
+</li>
+<li>
+<a href="https://www.adafruit.com/categories">SHOP</a>
+</li>
+<li>
+<a href="https://blog.adafruit.com/">BLOG</a>
+</li>
+<li>
+<a href="https://learn.adafruit.com/">LEARN</a>
+</li>
+<li>
+<a href="https://forums.adafruit.com/">FORUMS</a>
+</li>
+<li>
+<a href="https://www.youtube.com/adafruit">VIDEOS</a>
+</li>
+<li>
+<a href="https://learn.adafruit.com/users/sign_in">SIGN IN</a>
+</li>
+<li>
+<a class="close-btn" id="small-nav-close-button" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management#top">CLOSE MENU</a>
+</li>
+</ul>
+</div>
+</nav>
+<div id="header-content" class="container hidden-xs">
+<div id="header-profile">
+<a id="header-cart" href="https://www.adafruit.com/shopping_cart">
+0 Items <i class="fa fa-shopping-cart"></i>
+</a> <div id="account">
+<a href="https://learn.adafruit.com/users/sign_in">Sign In</a>
+</div>
+<div id="search-wrapper">
+<form action="https://learn.adafruit.com/search" method="get">
+<label for="search" style="display:none;">Search</label>
+<input id="search" type="text" name="q" autocomplete="off" data-page="" ,="" data-app-id="W9DMM4OTH0" data-app-key="e613bcda3453b9ef887e2724362f9e57" data-app-index="learn_guides_production" data-app-uri="https://learn.adafruit.com">
+<i class="fa fa-search"></i>
+<input type="submit" style="visibility: hidden; position: fixed;">
+</form>
+</div>
+</div>
+<div id="navigation">
+<a href="https://www.adafruit.com/">
+<img id="logo" width="172" height="60" alt="Adafruit Logo" title="Adafruit Logo" src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/logo_2x.png">
+</a> <nav class="hover-menu">
+<ul>
+<li id="nav-shop" data-load="https://www.adafruit.com/api/flyouts/shop.html"><a href="https://www.adafruit.com/">SHOP</a>
+</li>
+<li id="nav-blog" data-load="https://blog.adafruit.com/adafruit-blog-flyouts"><a href="https://blog.adafruit.com/">BLOG</a>
+</li>
+<li id="nav-learn" data-load="https://learn.adafruit.com/api/hover-menu/flyouts/learn.html"><a href="https://learn.adafruit.com/">LEARN</a>
+</li>
+<li id="nav-forums"><a href="https://forums.adafruit.com/">FORUMS</a>
+</li>
+<li id="nav-forums"><a href="https://www.youtube.com/adafruit">VIDEOS</a>
+</li>
+<li class="visible-lg"><a href="https://www.adabox.com/">ADABOX</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</header>
+<div id="main-content">
+<div id="page-wrapper">
+<div id="content-wrapper" class="container" data-page-id="9291" data-guide-id="1641">
+<div class="row">
+<div class="sidebar-left-wrapper hidden-phone hidden-tablet col-lg-two-and-half col-md-3 col-sm-4 col-xs-12">
+<div class="sidebar-left-content affix" data-clampedwidth=".sidebar-left-wrapper" style="width: 255px;">
+<nav class="sidebar-left">
+<div class="title-bar">
+<img src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/thumb.jpg" class="img img-responsive">
+<div class="title">
+<h1><a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/overview">Adafruit HUZZAH32 - ESP32 Feather</a></h1>
+<span class="tagline"><a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/overview">WiFi, Bluetooth, peripherals galore!</a></span>
+</div>
+</div>
+<ul class="page-parent nav">
+<li class="parent ">
+<a class="sidebar-parent" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/overview">Overview</a>
+<span class="page-draft-status">
+</span>
+</li>
+<li class="parent ">
+<a class="sidebar-parent" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/pinouts">Pinouts</a>
+<span class="page-draft-status">
+</span>
+</li>
+<li class="parent ">
+<a class="sidebar-parent" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/assembly">Assembly</a>
+<span class="page-draft-status">
+</span>
+</li>
+<li class="parent active">
+<a class="sidebar-parent" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management">Power Management</a>
+<span class="page-draft-status">
+</span>
+</li>
+<li class="parent ">
+<a class="sidebar-parent" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/using-with-arduino-ide">Using with Arduino IDE</a>
+<span class="page-draft-status">
+</span>
+</li>
+<li class="parent ">
+<a class="sidebar-parent" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/esp32-faq">ESP32 F.A.Q</a>
+<span class="page-draft-status">
+</span>
+</li>
+<li class="parent ">
+<a class="sidebar-parent" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/downloads">Downloads</a>
+<span class="page-draft-status">
+</span>
+</li>
+<li class="single-page-spacer"></li>
+<li class="single-page-link ">
+<a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/featured_products">Featured Products</a>
+</li>
+<li class="single-page-link"><a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather?view=all">Single Page</a></li>
+<li><a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-huzzah32-esp32-feather.pdf">Download PDF</a></li>
+</ul>
+</nav>
+<header class="sidebar-meta hidden-xs">
+<h4>Contributors</h4>
+<div><a href="https://learn.adafruit.com/users/adafruit2">lady ada</a></div>
+<div><a href="https://learn.adafruit.com/users/DannyN">Danny Nosonowitz</a></div>
+</header>
+<header class="sidebar-meta hidden-xs">
+<a class="feedback-link" title="Feedback? Corrections?" rel="nofollow" data-remote="true" data-method="get" href="https://learn.adafruit.com/pages/9291/settings_modal">
+Feedback? Corrections?
+</a> </header>
+</div>
+</div>
+<article class="col-lg-7 col-md-6 col-sm-8 col-xs-12">
+<div id="categories">
+<span class="category child-category">
+<a href="https://learn.adafruit.com/category/internet-of-things-iot">INTERNET OF THINGS - IOT</a>
+<span class="category-link-spacer">/</span>
+<a href="https://learn.adafruit.com/category/wireless">WIRELESS</a>
+</span>
+<span class="category child-category">
+<a href="https://learn.adafruit.com/category/feather">FEATHER</a>
+<span class="category-link-spacer">/</span>
+<a href="https://learn.adafruit.com/category/feather-boards">FEATHER BOARDS</a>
+</span>
+<span class="category child-category">
+<a href="https://learn.adafruit.com/category/internet-of-things-iot">INTERNET OF THINGS - IOT</a>
+<span class="category-link-spacer">/</span>
+<a href="https://learn.adafruit.com/category/bluefruit-slash-ble">BLUEFRUIT / BLE</a>
+</span>
+<span id="guide-favorite">
+<a class="favorites-link category right red" title="" data-toggle="tooltip" data-placement="left" data-remote="true" rel="nofollow" data-method="post" href="https://learn.adafruit.com/guides/1641/favorites.js" data-original-title="Favorite this guide?">
+<i class="fa fa-heart-o"></i>
+</a></span>
+</div>
+<div class="content">
+<div class="page-title-wrapper">
+<h1 class="headline">
+<span id="power-management">Power Management</span>
+</h1>
+<div class="author">by
+<a href="https://learn.adafruit.com/users/adafruit2">
+<span class="name">lady ada</span>
+</a> </div>
+</div>
+<div class="page-content">
+<div class="row-fluid build-image">
+<a href="https://learn.adafruit.com/assets/41631">
+<img class="41631-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/041/631/medium260/feather_3405_iso_demo_ORIG.jpg?1494450206 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/631/medium640/feather_3405_iso_demo_ORIG.jpg?1494450206 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/631/medium800/feather_3405_iso_demo_ORIG.jpg?1494450206 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/631/large1024/feather_3405_iso_demo_ORIG.jpg?1494450206 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/feather_3405_iso_demo_ORIG.jpg" alt="feather_3405_iso_demo_ORIG.jpg">
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<h1>
+<a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management#battery-plus-usb-power" class="anchor-link"><span class="fa fa-link"></span></a><span id="battery-plus-usb-power" class="anchor-link-target"></span>Battery + USB Power</h1>
+<p>We wanted to make the Feather HUZZAH32 easy to power both when connected to a computer as well as via battery. There's <strong>two ways to power</strong> a Feather. You can connect with a Micro USB cable (just plug into the jack) and the Feather will regulate the 5V USB down to 3.3V. You can also connect a 4.2/3.7V Lithium Polymer (Lipo/Lipoly) or Lithium Ion (LiIon) battery to the JST jack. This will let the Feather run on a rechargeable battery. <strong>When the USB power is powered, it will automatically switch over to USB for power, as well as start charging the battery (if attached) at 200mA. </strong>This happens 'hot-swap' style so you can always keep the LiPoly connected as a 'backup' power that will only get used when USB power is lost.</p>
+</div>
+<div class="row-fluid build-alert alert-warning">
+<div class="alert">
+<i class="fa fa-exclamation-circle"></i>
+The JST connector polarity is matched to Adafruit LiPoly batteries. Using wrong polarity batteries can destroy your Feather
+</div>
+</div>
+<div class="row-fluid build-image">
+<a href="https://learn.adafruit.com/assets/41632">
+<img class="41632-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/041/632/medium260/feather_charge.jpg?1494450295 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/632/medium640/feather_charge.jpg?1494450295 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/632/medium800/feather_charge.jpg?1494450295 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/632/large1024/feather_charge.jpg?1494450295 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/feather_charge.jpg" alt="feather_charge.jpg">
+<span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p>The above shows the Micro USB jack (left), Lipoly JST jack (top left), as well as the 3.3V regulator (to the right of the JST jack), changeover diode+transistor (below the JST jack) and the Lipoly charging circuitry (right below the regulator).</p>
+<p>There's also a <strong>CHG</strong> LED next to the USB jack, which will light up while the battery is charging. This LED might also flicker if the battery is not connected, it's normal.</p>
+</div>
+<div class="row-fluid build-text">
+<h1>
+<a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management#power-supplies" class="anchor-link"><span class="fa fa-link"></span></a><span id="power-supplies" class="anchor-link-target"></span>Power supplies</h1>
+<p>You have a lot of power supply options here! We bring out the <strong>BAT</strong> pin, which is tied to the lipoly JST connector, as well as <strong>USB </strong>which is the +5V from USB if connected. We also have the <strong>3V</strong> pin which has the output from the 3.3V regulator. We use a 500mA peak low-dropout regulator. Please budget 250mA for the WROOM32 module. While you can get 500mA total from it, you can't do it continuously from 5V as it will overheat the regulator. We use this to power the ESP32 which draws about 200mA continuous. The good news is you can put the ESP32 into sleep and low-power modes much easier.</p>
+</div>
+<div class="row-fluid build-image">
+<a href="https://learn.adafruit.com/assets/41633">
+<img class="41633-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/041/633/medium260/feather_powerpins.jpg?1494450442 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/633/medium640/feather_powerpins.jpg?1494450442 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/633/medium800/feather_powerpins.jpg?1494450442 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/633/large1024/feather_powerpins.jpg?1494450442 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/feather_powerpins.jpg" alt="feather_powerpins.jpg">
+<span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<h1>
+<a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management#measuring-battery" class="anchor-link"><span class="fa fa-link"></span></a><span id="measuring-battery" class="anchor-link-target"></span>Measuring Battery</h1>
+<p>If you're running off of a battery, chances are you wanna know what the voltage is at! That way you can tell when the battery needs recharging. Lipoly batteries are 'maxed out' at 4.2V and stick around 3.7V for much of the battery life, then slowly sink down to 3.2V or so before the protection circuitry cuts it off. By measuring the voltage you can quickly tell when you're heading below 3.7V</p>
+<p>Since the ESP32 has tons of ADC pins, we 'sacrifice' one for Lipoly battery monitoring. You can read half of the battery voltage off of&nbsp;<strong>A13</strong>. Don't forget to double the voltage you read, since there is a divider. </p>
+</div>
+<div class="row-fluid build-text">
+<h1>
+<a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management#enable-pin" class="anchor-link"><span class="fa fa-link"></span></a><span id="enable-pin" class="anchor-link-target"></span>ENable pin</h1>
+<p>If you'd like to turn off the 3.3V regulator, you can do that with the <strong>EN</strong>(able) pin. Simply tie this pin to <strong>Ground </strong>and it will disable the 3V regulator. The <strong>BAT</strong> and <strong>USB</strong> pins will still be powered</p>
+</div>
+<div class="row-fluid build-image">
+<a href="https://learn.adafruit.com/assets/41634">
+<img class="41634-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/041/634/medium260/feather_en.jpg?1494450542 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/634/medium640/feather_en.jpg?1494450542 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/634/medium800/feather_en.jpg?1494450542 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/041/634/large1024/feather_en.jpg?1494450542 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/feather_en.jpg" alt="feather_en.jpg">
+<span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="page-navigation">
+<a class="previous-page" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/assembly">
+<i class="fa fa-chevron-left"></i>ASSEMBLY
+</a> <a class="next-page" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/using-with-arduino-ide">
+USING WITH ARDUINO IDE<i class="fa fa-chevron-right"></i>
+</a> <div class="clear"></div>
+</div>
+<span class="page-last-updated">Last updated on 2017-05-10 at 05.09.05 PM</span>
+<span class="page-last-updated">Published on 2017-05-10 at 05.37.07 PM</span>
+</div>
+</div>
+</article>
+<div class="col-lg-two-and-half col-md-3 hidden-sm hidden-xs">
+<header class="sidebar-right">
+<div class="sidebar-right-content">
+<div class="product-wrapper">
+<div class="product-image">
+<a href="https://www.adafruit.com/product/3405">
+<img src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/3405-06.jpg" alt="" height="233" class="img-responsive">
+</a> </div>
+<div class="product-details">
+<div class="product-title">Adafruit HUZZAH32 – ESP32 Feather Board</div>
+<span class="product-price">$19.95</span>
+<a id="3405-product" class="product-buy btn " data-pid="3405" data-qty="1" data-name="Adafruit HUZZAH32 – ESP32 Feather Board" href="https://www.adafruit.com/product/3405">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<a href="https://www.adafruit.com/product/1578">
+<img src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/1578-00.jpg" alt="" height="233" class="img-responsive">
+</a> </div>
+<div class="product-details">
+<div class="product-title">Lithium Ion Polymer Battery - 3.7v 500mAh</div>
+<span class="product-price">$7.95</span>
+<a id="1578-product" class="notify product-buy " data-pid="1578" data-qty="1" data-name="Lithium Ion Polymer Battery - 3.7v 500mAh" href="https://www.adafruit.com/product/1578">Out of Stock (Notify Me)</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<a href="https://www.adafruit.com/product/258">
+<img src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/258-00.jpg" alt="" height="233" class="img-responsive">
+</a> </div>
+<div class="product-details">
+<div class="product-title">Lithium Ion Polymer Battery - 3.7v 1200mAh</div>
+<span class="product-price">$9.95</span>
+<a id="258-product" class="product-buy btn " data-pid="258" data-qty="1" data-name="Lithium Ion Polymer Battery - 3.7v 1200mAh" href="https://www.adafruit.com/product/258">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<a href="https://www.adafruit.com/product/2830">
+<img src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/2830-00.jpg" alt="" height="233" class="img-responsive">
+</a> </div>
+<div class="product-details">
+<div class="product-title">Feather Stacking Headers - 12-pin and 16-pin female headers</div>
+<span class="product-price">$1.25</span>
+<a id="2830-product" class="product-buy btn " data-pid="2830" data-qty="1" data-name="Feather Stacking Headers - 12-pin and 16-pin female headers" href="https://www.adafruit.com/product/2830">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<a href="https://www.adafruit.com/product/2940">
+<img src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/2940-01.jpg" alt="" height="233" class="img-responsive">
+</a> </div>
+<div class="product-details">
+<div class="product-title">Short Feather Headers Kit - 12-pin and 16-pin Female Header Set</div>
+<span class="product-price">$1.50</span>
+<a id="2940-product" class="product-buy btn " data-pid="2940" data-qty="1" data-name="Short Feather Headers Kit - 12-pin and 16-pin Female Header Set" href="https://www.adafruit.com/product/2940">Add to Cart</a>
+</div>
+</div>
+<a class="featured-products-link" href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/featured_products">All Featured Products</a>
+<div class="clear"></div>
+</div>
+</header>
+</div>
+</div>
+</div>
+<div class="related-guides-wrapper container">
+<div class="row">
+<div class="related-guides-title col-lg-12">
+<h2>
+RELATED GUIDES
+</h2>
+</div>
+</div>
+<div class="related-guides-content row">
+<div class="14-guide masonry-block col-lg-3 col-md-3 col-sm-4 col-xs-12">
+<div class="guide-block">
+<div class="title-bar">
+<div class="guide-type popular-guide">
+<a href="https://learn.adafruit.com/guides/popular">POPULAR</a>
+</div>
+<div class="title">
+<h5>
+<a href="https://learn.adafruit.com/ttl-serial-camera">
+TTL Serial Camera<br>
+</a> </h5>
+<div class="tagline">
+<a href="https://learn.adafruit.com/ttl-serial-camera">
+Snap, Snap!
+</a> </div>
+<div class="author">by
+<a href="https://learn.adafruit.com/users/adafruit2">
+<span class="name">lady ada</span>
+</a> </div>
+</div>
+</div>
+<a href="https://learn.adafruit.com/ttl-serial-camera">
+<img src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/397.jpg" class="img-responsive guide-image" data-standard-image="https://cdn-learn.adafruit.com/guides/images/000/000/014/medium310/397.jpg?1514389029" data-mobile-image="https://cdn-learn.adafruit.com/guides/images/000/000/014/medium800/397.jpg?1514389029">
+</a> <div class="details">
+<div class="description">
+<a href="https://learn.adafruit.com/ttl-serial-camera">
+This guide is for our new TTL serial camera module with NTSC video output. These modules are a nice addition to a microcontroller project when you want to take a photo or control a video stream. The modules have a few features built in, such as the ability to change the brightness/saturation/hue of images, auto-contrast and auto-brightness adjustment, and motion detection.
+</a> </div>
+</div>
+</div>
+</div>
+<div class="15-guide masonry-block col-lg-3 col-md-3 col-sm-4 col-xs-12">
+<div class="guide-block">
+<div class="title-bar">
+<div class="guide-type popular-guide">
+<a href="https://learn.adafruit.com/guides/popular">POPULAR</a>
+</div>
+<div class="title">
+<h5>
+<a href="https://learn.adafruit.com/el-wire">
+EL Wire<br>
+</a> </h5>
+<div class="tagline">
+<a href="https://learn.adafruit.com/el-wire">
+Working with Electroluminescent Wire
+</a> </div>
+<div class="author">by
+<a href="https://learn.adafruit.com/users/adafruit2">
+<span class="name">lady ada</span>
+</a> </div>
+</div>
+</div>
+<a href="https://learn.adafruit.com/el-wire">
+<img src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/EL_Wire.jpg" class="img-responsive guide-image" data-standard-image="https://cdn-learn.adafruit.com/guides/images/000/000/015/medium310/EL_Wire.jpg?1514389623" data-mobile-image="https://cdn-learn.adafruit.com/guides/images/000/000/015/medium800/EL_Wire.jpg?1514389623">
+</a> <div class="details">
+<div class="description">
+<a href="https://learn.adafruit.com/el-wire">
+EL Wire, also known as Electroluminescent wire, is a stiff wire core coated with phosphor and then covered with a protective PVC sheath. When an AC signal is applied to it, it glows a cool neon color. Find out how to solder, power, and work with EL Wire in your next project.
+</a> </div>
+</div>
+</div>
+</div>
+<div class="16-guide masonry-block col-lg-3 col-md-3 col-sm-4 col-xs-12">
+<div class="guide-block">
+<div class="title-bar">
+<div class="guide-type popular-guide">
+<a href="https://learn.adafruit.com/guides/popular">POPULAR</a>
+</div>
+<div class="title">
+<h5>
+<a href="https://learn.adafruit.com/hacking-the-kinect">
+Hacking the Kinect<br>
+</a> </h5>
+<div class="tagline">
+<a href="https://learn.adafruit.com/hacking-the-kinect">
+Reverse engineering the Microsoft Kinect
+</a>  </div>
+<div class="author">by
+<a href="https://learn.adafruit.com/users/adafruit2">
+<span class="name">lady ada</span>
+</a> </div>
+</div>
+</div>
+<a href="https://learn.adafruit.com/hacking-the-kinect">
+<img src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/04a1fe47-8b58-41e9-a486-65456d2bf6ce_1.7d6bbbf694215ef00e24e2f11adddb89.jpeg" class="img-responsive guide-image" data-standard-image="https://cdn-learn.adafruit.com/guides/images/000/000/016/medium310/04a1fe47-8b58-41e9-a486-65456d2bf6ce_1.7d6bbbf694215ef00e24e2f11adddb89.jpeg?1514389899" data-mobile-image="https://cdn-learn.adafruit.com/guides/images/000/000/016/medium800/04a1fe47-8b58-41e9-a486-65456d2bf6ce_1.7d6bbbf694215ef00e24e2f11adddb89.jpeg?1514389899">
+</a> <div class="details">
+<div class="description">
+<a href="https://learn.adafruit.com/hacking-the-kinect">
+Here's a step by step guide on how you can reverse engineer a Microsoft Kinect for the Xbox 360.
+</a> </div>
+</div>
+</div>
+</div>
+<div class="17-guide masonry-block col-lg-3 col-md-3 col-sm-4 col-xs-12">
+<div class="guide-block">
+<div class="title-bar">
+<div class="guide-type popular-guide">
+<a href="https://learn.adafruit.com/guides/popular">POPULAR</a>
+</div>
+<div class="title">
+<h5>
+<a href="https://learn.adafruit.com/beaglebone">
+BeagleBone<br>
+</a> </h5>
+<div class="tagline">
+<a href="https://learn.adafruit.com/beaglebone">
+Tutorials for the TI embedded Linux board
+</a> </div>
+<div class="author">by
+<a href="https://learn.adafruit.com/users/adafruit2">
+<span class="name">lady ada</span>
+</a> </div>
+</div>
+</div>
+<a href="https://learn.adafruit.com/beaglebone">
+<img src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/beaglebonetop_LRG.jpg" class="img-responsive guide-image" data-standard-image="https://cdn-learn.adafruit.com/guides/images/000/000/017/medium310/beaglebonetop_LRG.jpg?1448300904" data-mobile-image="https://cdn-learn.adafruit.com/guides/images/000/000/017/medium800/beaglebonetop_LRG.jpg?1448300904">
+</a> <div class="details">
+<div class="description">
+<a href="https://learn.adafruit.com/beaglebone">
+New from the fine people who have brought us the Beagle Board, we now have a smaller, lighter, but powerful single board linux computer, Beagle Bone! We like this move to a more compact and integrated SBC. For example, there is onboard Ethernet and USB host, as well as a USB client interface (a FTDI chip for shell access). It even comes preloaded with Angstrom Linux on the 4 GB microSD card! Here are some tips and tricks to get your BeagleBone up and running.
+</a> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-spacer"></div>
+</div>
+<div class="modal fade" id="notify-modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management#" class="close" data-dismiss="modal">×</a>
+<h5>OUT OF STOCK NOTIFICATION</h5>
+</div>
+<div class="modal-body">
+<p class="notify-modal-form-header"></p>
+<div class="notify-modal-products"></div>
+<form id="notify-modal-form" name="back_in_stock_notification">
+<p class="notify-modal-form-notice"></p>
+<div class="notify-modal-break"></div>
+<div class="form-group">
+<label class="inputLabel" for="name">YOUR NAME</label>
+<input type="text" size="25" maxlength="64" name="name" value="">
+</div>
+<div class="form-group">
+<label class="inputLabel" for="email">YOUR EMAIL</label>
+<input type="email" size="25" maxlength="96" name="email" value="">
+ </div>
+<input type="text" name="daigo" style="display:none;">
+<input type="hidden" name="notify_me" value="true">
+</form>
+<div id="notify-modal-success" style="display:none">
+<p>You have been successfully subscribed to the Notification List for this product and will therefore receive an e-mail from us when it is back in stock!</p>
+<p>For security reasons, an e-mail has been sent to you acknowledging your subscription. Please remember that this subscription will not result in you receiving any e-mail from us about anything other than the restocking of this item.</p>
+<p>If, for any reason, you would like to unsubscribe from the Notification List for this product you will find details of how to do so in the e-mail that has just been sent to you!</p>
+</div>
+</div>
+<div class="modal-footer">
+<a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management#" id="close-notify" style="display: none" data-dismiss="modal" data-target="#notify-modal">CLOSE</a>
+<a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/power-management#" id="submit-notify" rel="nofollow" class="blue-button">NOTIFY ME</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer id="adafruit-footer">
+<div id="footer-content" class="container">
+<div class="row">
+<div class=" col-lg-6 col-md-6 col-sm-4 col-xs-12">
+<nav>
+<ul>
+<li><a href="https://www.adafruit.com/contact_us">CONTACT</a></li>
+<li><a href="https://www.adafruit.com/support">SUPPORT</a>
+</li><li><a href="https://www.adafruit.com/distributors">DISTRIBUTORS</a></li>
+<li><a href="https://www.adafruit.com/educators">EDUCATORS</a></li>
+<li><a href="https://www.adafruit.com/jobs">JOBS</a></li>
+<li><a href="https://www.adafruit.com/faq">FAQ</a></li>
+<li><a href="https://www.adafruit.com/shippinginfo/">SHIPPING &amp; RETURNS</a></li>
+<li><a href="https://www.adafruit.com/terms_of_service/">TERMS OF SERVICE</a></li>
+<li><a href="https://www.adafruit.com/privacy">PRIVACY &amp; LEGAL</a></li>
+<li><a href="https://www.adafruit.com/about">ABOUT US</a></li>
+</ul>
+</nav>
+<div id="footer-copyright">
+<a href="http://nytm.org/made-in-nyc/">ENGINEERED IN NYC</a> <span>Adafruit&nbsp;®</span>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-8 hidden-xs">
+<div id="footer-quote" class="">
+"If opportunity doesn't knock, build a door"
+<span class="quote-author">- <a href="http://en.wikipedia.org/wiki/Milton_Berle">Milton Berle</a></span>
+</div>
+</div>
+<div id="footer-seals">
+<img class="img-responsive" src="./Power Management _ Adafruit HUZZAH32 - ESP32 Feather _ Adafruit Learning System_files/seals_2x.jpg" alt="Seals 2x">
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+
+</body></html>
