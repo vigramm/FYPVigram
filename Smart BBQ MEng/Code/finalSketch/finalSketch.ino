@@ -7,6 +7,7 @@ const char* ssid = "Vigram's iPhone";
 const char* password =  "abcdefgh";
 
 byte LED_BUILTIN2= 12;
+byte battery=35;
 byte WifiLedIndicator= 14;
 
 int numReadings=20;
@@ -112,7 +113,36 @@ void loop() {
    http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment1/information.json");  //Specify destination for HTTP request
    http.addHeader("Content-Type", "application/json");             //Specify content-type header
  
-   httpResponseCode = http.sendRequest("PUT", json);   //Send the actual POST request
+   httpResponseCode = http.sendRequest("PATCH", json);   //Send the actual POST request
+
+   delay(1000);
+ 
+   if(httpResponseCode>0){
+ 
+    String response = http.getString();                       //Get the response to the request
+ 
+    Serial.println(httpResponseCode);   //Print return code
+    Serial.println(response);           //Print request answer
+ 
+   }else{
+ 
+    Serial.print("Error on sending POST: ");
+    Serial.println(httpResponseCode);
+ 
+   }
+
+  float batteryvalue=analogRead(battery);
+  Serial.println(batteryvalue);
+  float batteryOutput=batteryvalue*1.1425*3.3/4095*2;
+  Serial.println(batteryOutput);
+  int batterypercent=(int)(batteryOutput/3.8*100);
+  Serial.println(batterypercent);
+
+    json="{\n\"batteryPercent\" : "+String(batterypercent)+"\n}";
+   http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment1/information.json");  //Specify destination for HTTP request
+   http.addHeader("Content-Type", "application/json");             //Specify content-type header
+ 
+   httpResponseCode = http.sendRequest("PATCH", json);   //Send the actual POST request
 
    delay(1000);
  

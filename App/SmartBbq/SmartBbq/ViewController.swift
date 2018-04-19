@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     var ref: DatabaseReference?
     
     var counter: Int = 0
+    
+    var totalDataPoints: Int = 20
  
     var firebaseData = [Double]()
     
@@ -29,9 +31,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         ref = Database.database().reference()
+        
+        
 
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -44,15 +49,7 @@ class ViewController: UIViewController {
     // IBAction connected to the "LED1 ON" button
     @IBAction func led1_Button(_ sender: Any)
     {
-
         getDataFirebase()
-   
-//        print(value)
-            //        let username = value?["username"] as? String ?? ""
-//        let user = User(username: username)
-        
-        // ...
-
 
     }
     @IBAction func led2_Button(_ sender: Any)
@@ -81,7 +78,7 @@ class ViewController: UIViewController {
             if let data = snapshot.value as? Double
             {
             self.firebaseData.append(data)
-            print(snapshot.value)
+            print(data)
             }
             else
             {
@@ -89,6 +86,21 @@ class ViewController: UIViewController {
             }
         }){ (error) in
                     print(error.localizedDescription)
+        }
+        self.ref?.child("experiment1").child("information").child("totalDataPoints").observe(.value, with: { snapshot in
+
+            if let data = snapshot.value as? Double
+            {
+                
+
+                print(data)
+            }
+            else
+            {
+
+            }
+        }){ (error) in
+            print(error.localizedDescription)
         }
         self.counter=self.counter+1;
     }
@@ -129,11 +141,17 @@ class ViewController: UIViewController {
     
     @IBAction func getExperimentDetails(_ sender: Any)
     {
-        let username: String=self.username_Textfield.text!
-        let password: String=self.password_TextField.text!
-        NSLog("%@",username )
-        NSLog("%@",password )
-        self.ref?.child("experiment1").child("information").child("credentials").setValue([username: password])
+        while(self.counter<self.totalDataPoints)
+        {
+            getDataFirebase()
+            
+        }
+        updateGraph()
+//        let username: String=self.username_Textfield.text!
+//        let password: String=self.password_TextField.text!
+//        NSLog("%@",username )
+//        NSLog("%@",password )
+//        self.ref?.child("experiment1").child("information").child("credentials").setValue([username: password])
     }
     
     
