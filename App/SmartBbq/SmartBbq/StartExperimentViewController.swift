@@ -14,14 +14,59 @@ class StartExperimentViewController: UIViewController {
     var ref: DatabaseReference?
     var experimentNumber: Int = 0
     
+    var mode: String=""
+    
+    
+    @IBOutlet weak var ViewCurrentButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.ViewCurrentButton.isHidden=true
         
         ref = Database.database().reference()
+        self.ref?.child("TotalExperiments").observe(.value, with: { snapshot in
+            if let data = snapshot.value as? Int
+            {
+                self.experimentNumber=data+1
+                print(data)
+                print(self.experimentNumber)
+                
+            }
+            else
+            {
+                
+            }
+        }){ (error) in
+            print(error.localizedDescription)
+        }
+
 
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.ref?.child("Mode").observe(.value, with: { snapshot in
+            if let data = snapshot.value as? String
+            {
+                self.mode=data
+                print(data)
+                print(self.experimentNumber)
+                
+            }
+            else
+            {
+                
+            }
+        }){ (error) in
+            print(error.localizedDescription)
+        }
+        
+        if(self.mode == "Start")
+        {
+            self.ViewCurrentButton.isHidden=false
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,23 +74,18 @@ class StartExperimentViewController: UIViewController {
     
     @IBAction func startButtonClick(_ sender: Any)
     {
+
+        
+        self.ref?.updateChildValues(["TotalExperiments":self.experimentNumber])
+        self.ref?.updateChildValues(["Mode":"Start"])
+        
+        let ViewControllerVC = ViewController(nibName: "VC", bundle: nil)
+        ViewControllerVC.experimentNumber=self.experimentNumber;
+        
+    }
     
-        self.ref?.child("TotalExperiments").observe(.value, with: { snapshot in
-
-            if let data = snapshot.value as? Int
-            {
-                self.experimentNumber=data+1
-                print(data)
-                
-            }
-            else
-            {
-
-            }
-        }){ (error) in
-            print(error.localizedDescription)
-        }
-    self.ref?.updateChildValues(["TotalExperiments":self.experimentNumber])
+    
+    @IBAction func ViewCurrentExperimentClick(_ sender: Any) {
     }
     
     /*
@@ -57,5 +97,4 @@ class StartExperimentViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

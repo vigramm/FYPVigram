@@ -17,16 +17,15 @@ class ViewController: UIViewController {
     
     var counter: Int = 0
     
-    var totalDataPoints: Int = 20
+    var totalDataPoints: Int = 0
  
     var firebaseData = [Double]()
     
+    var experimentNumber: Int = 0
+    
     @IBOutlet weak var graphChart: LineChartView!
     
-    @IBOutlet weak var username_Textfield: UITextField!
-    
-    
-    @IBOutlet weak var password_TextField: UITextField!
+
     
     
     override func viewDidLoad() {
@@ -38,6 +37,24 @@ class ViewController: UIViewController {
 
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.ref?.child("experiment1").child("information").child("totalDataPoints").observe(.value, with: { snapshot in
+            
+            if let data = snapshot.value as? Int
+            {
+                
+                self.totalDataPoints=data
+                print(data)
+            }
+            else
+            {
+                
+            }
+        }){ (error) in
+            print(error.localizedDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,21 +75,16 @@ class ViewController: UIViewController {
         
     }
     
+    
+ 
+    @IBAction func ENDButtonClick(_ sender: Any)
+    {
+        self.ref?.updateChildValues(["Mode":"End"])
+    }
+    
     func getDataFirebase(){
         
         let counterString=String(self.counter);
-//        self.ref?.child("Experiment1").observeSingleEvent(of: .value, with: { (snapshot) in
-//            // Get user value
-//            self.firebaseData.append((snapshot.value as? Double)!)
-//
-//            for i in 0..<self.firebaseData.count
-//            {
-//                print(self.firebaseData[i])
-//            }
-//          self.counter=self.counter+1;
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
         self.ref?.child("experiment1").child(counterString).observe(.value, with: { snapshot in
             
             if let data = snapshot.value as? Double
@@ -87,21 +99,8 @@ class ViewController: UIViewController {
         }){ (error) in
                     print(error.localizedDescription)
         }
-        self.ref?.child("experiment1").child("information").child("totalDataPoints").observe(.value, with: { snapshot in
+        
 
-            if let data = snapshot.value as? Double
-            {
-                
-
-                print(data)
-            }
-            else
-            {
-
-            }
-        }){ (error) in
-            print(error.localizedDescription)
-        }
         self.counter=self.counter+1;
     }
     
@@ -138,27 +137,9 @@ class ViewController: UIViewController {
     }
     
     
+
     
-    @IBAction func getExperimentDetails(_ sender: Any)
-    {
-        while(self.counter<self.totalDataPoints)
-        {
-            getDataFirebase()
-            
-        }
-        updateGraph()
-//        let username: String=self.username_Textfield.text!
-//        let password: String=self.password_TextField.text!
-//        NSLog("%@",username )
-//        NSLog("%@",password )
-//        self.ref?.child("experiment1").child("information").child("credentials").setValue([username: password])
-    }
-    
-    
-    @IBOutlet weak var LedButton1: UIButton!
-    
-    @IBOutlet weak var LedButton2: UIButton!
-    
+
 
 }
 
