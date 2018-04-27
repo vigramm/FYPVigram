@@ -43,7 +43,6 @@
                                 <state key="normal" title="END "/>
                                 <connections>
                                     <action selector="ENDButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ed-K0-Iyx"/>
-                                    <segue destination="f01-ny-ECE" kind="show" id="FXG-nu-HSp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -118,6 +117,8 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-R1-DE7">
                                 <rect key="frame" x="75" y="157" width="225" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64508330762300936" green="0.71993972081218272" blue="0.64659725453642258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="0.969808407126866" blue="0.95618410604276183" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="startButtonClick:" destination="f01-ny-ECE" eventType="touchUpInside" id="nX2-1U-xij"/>
@@ -291,7 +292,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FXG-nu-HSp"/>
         <segue reference="WMU-fk-LFK"/>
     </inferredMetricsTieBreakers>
 </document>

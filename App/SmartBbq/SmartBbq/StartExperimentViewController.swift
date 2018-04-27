@@ -21,13 +21,13 @@ class StartExperimentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.ViewCurrentButton.isHidden=true
+      
         
         ref = Database.database().reference()
         self.ref?.child("TotalExperiments").observe(.value, with: { snapshot in
             if let data = snapshot.value as? Int
             {
-                self.experimentNumber=data+1
+                self.experimentNumber=data
                 print(data)
                 print(self.experimentNumber)
                 
@@ -45,6 +45,7 @@ class StartExperimentViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        self.ViewCurrentButton.isHidden=true
         self.ref?.child("Mode").observe(.value, with: { snapshot in
             if let data = snapshot.value as? String
             {
@@ -74,14 +75,8 @@ class StartExperimentViewController: UIViewController {
     
     @IBAction func startButtonClick(_ sender: Any)
     {
-
-        
-        self.ref?.updateChildValues(["TotalExperiments":self.experimentNumber])
+    self.ref?.updateChildValues(["TotalExperiments":self.experimentNumber+1])
         self.ref?.updateChildValues(["Mode":"Start"])
-        
-        let ViewControllerVC = ViewController(nibName: "VC", bundle: nil)
-        ViewControllerVC.experimentNumber=self.experimentNumber;
-        
     }
     
     

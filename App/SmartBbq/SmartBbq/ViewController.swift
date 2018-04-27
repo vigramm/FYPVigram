@@ -15,10 +15,6 @@ class ViewController: UIViewController {
 
     var ref: DatabaseReference?
     
-    var counter: Int = 0
-    
-    var totalDataPoints: Int = 0
- 
     var firebaseData = [Double]()
     
     var experimentNumber: Int = 0
@@ -32,7 +28,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         ref = Database.database().reference()
-        
+        getExperimentNumber()
+
         
 
         
@@ -40,21 +37,10 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.ref?.child("experiment1").child("information").child("totalDataPoints").observe(.value, with: { snapshot in
-            
-            if let data = snapshot.value as? Int
-            {
-                
-                self.totalDataPoints=data
-                print(data)
-            }
-            else
-            {
-                
-            }
-        }){ (error) in
-            print(error.localizedDescription)
-        }
+
+        getDataFirebase()
+        updateGraph()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,16 +66,24 @@ class ViewController: UIViewController {
     @IBAction func ENDButtonClick(_ sender: Any)
     {
         self.ref?.updateChildValues(["Mode":"End"])
+        self.navigationController?.popViewController(animated: true)
     }
     
     func getDataFirebase(){
+       
+        print("fucking expriment")
+        print(self.experimentNumber)
+        let experimentName="experiment\(self.experimentNumber)"
+        print(experimentName)
         
-        let counterString=String(self.counter);
-        self.ref?.child("experiment1").child(counterString).observe(.value, with: { snapshot in
+        self.ref?.child("experiment\(self.experimentNumber)").observe(.value, with: { snapshot in
             
-            if let data = snapshot.value as? Double
+            if let data = snapshot.value as? NSArray
             {
-            self.firebaseData.append(data)
+                for i in 0..<data.count {
+                    self.firebaseData.append(data[i] as! Double)
+                }
+            //self.firebaseData.append(data)
             print(data)
             }
             else
@@ -101,7 +95,9 @@ class ViewController: UIViewController {
         }
         
 
-        self.counter=self.counter+1;
+
+        
+
     }
     
     
@@ -115,12 +111,7 @@ class ViewController: UIViewController {
             lineChartEntry.append(entry)
 
         }
-        
-        // This works fine
-//        for i in 0..<20 {
-//            let value = ChartDataEntry(x: Double(i), y: Double(i))
-//            lineChartEntry.append(value)
-//        }
+  
         let line1 = LineChartDataSet(values: lineChartEntry, label: "Number")
         
         line1.colors = [NSUIColor.blue]
@@ -136,9 +127,27 @@ class ViewController: UIViewController {
         
     }
     
-    
+    func getExperimentNumber()
+    {
+        
+        self.ref?.child("TotalExperiments").observe(.value, with: { snapshot in
+            if let data = snapshot.value as? Int
+            {
+                self.experimentNumber=data
+                print(data)
+                print("inside\(self.experimentNumber)")
+            }
+            else
+            {
+                
+            }
+        }){ (error) in
+            print(error.localizedDescription)
+        }
+        print("experiment\(self.experimentNumber)")
 
-    
+
+    }
 
 
 }
