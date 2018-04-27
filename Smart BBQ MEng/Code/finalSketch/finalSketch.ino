@@ -12,7 +12,9 @@ byte WifiLedIndicator= 14;
 
 int numReadings=20;
 
-//char PostData[] = "{\"name\": \"Fred\", \"age\": 31}";
+int experimentNumber;
+
+
 
 void setup() {
  
@@ -35,14 +37,56 @@ void setup() {
 
  digitalWrite(WifiLedIndicator, HIGH);
    Serial.println("Connected to the WiFi network");
+
+    HTTPClient http;
+
+    http.begin("https://smartbbq-9bfc3.firebaseio.com/TotalExperiments.json"); 
+    int httpCode = http.GET();                                      
+ 
+    if (httpCode > 0) { //Check for the returning code
+ 
+        experimentNumber= (http.getString().toInt())+1;
+        Serial.println(httpCode);
+        Serial.println(experimentNumber);
+      }
+ 
+    else {
+      Serial.println("Error on HTTP request");
+    }
+ 
+    http.end(); //Free the resources
+   
  
 }
 
-int counter=0;
+int counter=1;
 
 void loop() {
+
+    HTTPClient http;
+
+    String ESPmode="";
+    http.begin("https://smartbbq-9bfc3.firebaseio.com/Mode.json"); 
+    int httpCode = http.GET();                                      
+ 
+    if (httpCode > 0) { //Check for the returning code
+ 
+        ESPmode= http.getString();
+        Serial.println(httpCode);
+        Serial.println(ESPmode);
+      }
+ 
+    else {
+      Serial.println("Error on HTTP request");
+    }
+ 
+    http.end(); //Free the resources
+  if(ESPmode.equals("\"Start\""))
+  { 
+    Serial.println("Hello mate");
    
- if(WiFi.status()== WL_CONNECTED){   //Check WiFi connection status
+ if(WiFi.status()== WL_CONNECTED)
+ {   //Check WiFi connection status
 
   float resistanceOfResistors=1000.0; //Voltage of Resistors
   float voltageReference=3.3; // Input Voltage on rails
@@ -70,22 +114,19 @@ void loop() {
   float finaltemp=temp+14.0;
   Serial.print(temp+14.0);
 
-//  StaticJsonBuffer<300> JSONbuffer;   //Declaring static JSON buffer
-//    JsonObject& JSONencoder = JSONbuffer.createObject(); 
+HTTPClient http;
+
+
+
+
  
    String json="{\n\""+String(counter)+"\" : "+finaltemp+"\n}";
     Serial.print(json);
 
     counter++;
+
  
-   
- 
-//    char JSONmessageBuffer[300];
-//    JSONencoder.prettyPrintTo(JSONmessageBuffer, sizeof(JSONmessageBuffer));
-//    Serial.println(JSONmessageBuffer);
-   HTTPClient http;   
- 
-   http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment1.json");  //Specify destination for HTTP request
+   http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment"+String(experimentNumber)+".json");  //Specify destination for HTTP request
    http.addHeader("Content-Type", "application/json");             //Specify content-type header
  
    int httpResponseCode = http.sendRequest("PATCH", json);   //Send the actual POST request
@@ -110,7 +151,7 @@ void loop() {
 
 
     json="{\n\"totalDataPoints\" : "+String(counter)+"\n}";
-   http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment1/information.json");  //Specify destination for HTTP request
+   http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment"+String(experimentNumber)+"/information.json");  //Specify destination for HTTP request
    http.addHeader("Content-Type", "application/json");             //Specify content-type header
  
    httpResponseCode = http.sendRequest("PATCH", json);   //Send the actual POST request
@@ -139,7 +180,7 @@ void loop() {
   Serial.println(batterypercent);
 
     json="{\n\"batteryPercent\" : "+String(batterypercent)+"\n}";
-   http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment1/information.json");  //Specify destination for HTTP request
+   http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment"+String(experimentNumber)+"/information.json");  //Specify destination for HTTP request
    http.addHeader("Content-Type", "application/json");             //Specify content-type header
  
    httpResponseCode = http.sendRequest("PATCH", json);   //Send the actual POST request
@@ -177,7 +218,12 @@ void loop() {
   
   
 }
- 
+
+  }
+  else
+  {
+    ESP.restart();
+  }
 
  
   delay(2000);  //Send a request every 10 seconds
