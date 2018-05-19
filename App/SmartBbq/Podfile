@@ -8,6 +8,7 @@ target 'SmartBbq' do
   # Pods for SmartBbq
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'Charts'
   pod 'BlueCapKit', '~> 0.6'
 

@@ -9,7 +9,8 @@
 import UIKit
 import Firebase
 
-class BatteryViewController: UIViewController {
+
+class ExperimentViewController: UIViewController {
     
     
     @IBOutlet weak var batteryView: UIProgressView!
@@ -28,11 +29,11 @@ class BatteryViewController: UIViewController {
         }
     }
     
-    
-    override func viewDidLoad() {
+      override func viewDidLoad() {
         super.viewDidLoad()
          ref = Database.database().reference()
         
+
         // Do any additional setup after loading the view.
     }
 
@@ -45,7 +46,7 @@ class BatteryViewController: UIViewController {
     
     func getDataFirebase(){
 
-        self.ref?.child("experiment1").child("information").child("batteryPercent").observe(.value, with: { snapshot in
+    self.ref?.child("experiment1").child("information").child("batteryPercent").observe(.value, with: { snapshot in
             
             if let data = snapshot.value as? Float
             {
@@ -73,7 +74,16 @@ class BatteryViewController: UIViewController {
         DispatchQueue.main.asyncAfter(
             deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }// This works fine
-     
+    
+    
+   
+    @IBAction func takePictureButton_onClick(_ sender: Any) {
+        
+        performSegue(withIdentifier: "showCamera_Segue", sender: nil)
+    }
+    
+    
+
     /*
     // MARK: - Navigation
 

@@ -22,45 +22,17 @@ class StartExperimentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
+
+        self.getExperimentNumber()
+
+
         
-        ref = Database.database().reference()
-        self.ref?.child("TotalExperiments").observe(.value, with: { snapshot in
-            if let data = snapshot.value as? Int
-            {
-                self.experimentNumber=data
-                print(data)
-                print(self.experimentNumber)
-                
-            }
-            else
-            {
-                
-            }
-        }){ (error) in
-            print(error.localizedDescription)
-        }
-
-
         // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear(_ animated: Bool) {
         self.ViewCurrentButton.isHidden=true
-        self.ref?.child("Mode").observe(.value, with: { snapshot in
-            if let data = snapshot.value as? String
-            {
-                self.mode=data
-                print(data)
-                print(self.experimentNumber)
-                
-            }
-            else
-            {
-                
-            }
-        }){ (error) in
-            print(error.localizedDescription)
-        }
+        self.getMode()
         
         if(self.mode == "Start")
         {
@@ -83,13 +55,43 @@ class StartExperimentViewController: UIViewController {
     @IBAction func ViewCurrentExperimentClick(_ sender: Any) {
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getExperimentNumber()
+    {
+        ref = Database.database().reference()
+        self.ref?.child("TotalExperiments").observe(.value, with: { snapshot in
+            if let data = snapshot.value as? Int
+            {
+                self.experimentNumber=data
+                print(data)
+                print(self.experimentNumber)
+                
+            }
+            else
+            {
+                
+            }
+        }){ (error) in
+            print(error.localizedDescription)
+        }
     }
-    */
+    
+    func getMode(){
+        self.ref?.child("Mode").observe(.value, with: { snapshot in
+            if let data = snapshot.value as? String
+            {
+                self.mode=data
+                print(data)
+                print(self.experimentNumber)
+                
+            }
+            else
+            {
+                
+            }
+        }){ (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    
 }

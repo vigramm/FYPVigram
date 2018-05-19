@@ -11,13 +11,15 @@ import FirebaseDatabase
 import Charts
 
 
-class ViewController: UIViewController {
+class GraphViewController: UIViewController {
 
     var ref: DatabaseReference?
     
     var firebaseData = [Double]()
     
     var experimentNumber: Int = 0
+    
+    var counter: Int = 0
     
     @IBOutlet weak var graphChart: LineChartView!
     
@@ -70,19 +72,17 @@ class ViewController: UIViewController {
     }
     
     func getDataFirebase(){
-       
-        print("fucking expriment")
+
         print(self.experimentNumber)
         let experimentName="experiment\(self.experimentNumber)"
         print(experimentName)
         
-        self.ref?.child("experiment\(self.experimentNumber)").observe(.value, with: { snapshot in
+        self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counter)").child("Value").observe(.value, with: { snapshot in
             
-            if let data = snapshot.value as? NSArray
+            if let data = snapshot.value as? Double
             {
-                for i in 0..<data.count {
-                    self.firebaseData.append(data[i] as! Double)
-                }
+                self.firebaseData.append(data)
+                
             //self.firebaseData.append(data)
             print(data)
             }
@@ -93,13 +93,11 @@ class ViewController: UIViewController {
         }){ (error) in
                     print(error.localizedDescription)
         }
+        counter=counter+1
         
-
-
-        
-
     }
     
+
     
     
 

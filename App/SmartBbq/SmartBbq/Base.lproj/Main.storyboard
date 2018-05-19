@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Graph View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="VC" id="BYZ-38-t0r" customClass="ViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VC" id="BYZ-38-t0r" customClass="GraphViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,12 +67,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935.2" y="-637.33133433283365"/>
+            <point key="canvasLocation" x="3199" y="-975"/>
         </scene>
-        <!--Battery View Controller-->
+        <!--Camera View Controller-->
+        <scene sceneID="y5C-9Y-1cI">
+            <objects>
+                <viewController id="HkP-AE-94j" customClass="CameraViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gnp-jq-CX2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6a-hj-4ro">
+                                <rect key="frame" x="157" y="562" width="60" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.96771266007236167" blue="0.93094908841098634" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="0Dz-L7-tv3"/>
+                                    <constraint firstAttribute="height" constant="60" id="rob-Xq-rxs"/>
+                                </constraints>
+                                <state key="normal" title=" "/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cameraButtonOnClick:" destination="HkP-AE-94j" eventType="touchUpInside" id="eUc-eJ-TN3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a6a-hj-4ro" firstAttribute="centerX" secondItem="5mh-PT-YOI" secondAttribute="centerX" id="MB0-XG-3kD"/>
+                            <constraint firstItem="5mh-PT-YOI" firstAttribute="bottom" secondItem="a6a-hj-4ro" secondAttribute="bottom" constant="45" id="fd7-kY-wuU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5mh-PT-YOI"/>
+                    </view>
+                    <connections>
+                        <segue destination="bdh-RT-7xI" kind="show" identifier="showPhoto_Segue" id="Hmu-Lb-hg7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yfE-Z0-vrt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3198" y="-252"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="zei-m5-l90">
+            <objects>
+                <viewController id="bdh-RT-7xI" customClass="ImageViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sBi-rM-FIb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PwX-JF-U6c">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PwX-JF-U6c" firstAttribute="bottom" secondItem="njJ-ch-XWO" secondAttribute="bottom" id="3gR-Jt-Vv5"/>
+                            <constraint firstItem="PwX-JF-U6c" firstAttribute="trailing" secondItem="njJ-ch-XWO" secondAttribute="trailing" id="4ku-Lf-fFc"/>
+                            <constraint firstItem="PwX-JF-U6c" firstAttribute="leading" secondItem="njJ-ch-XWO" secondAttribute="leading" id="fYr-te-D2Y"/>
+                            <constraint firstItem="PwX-JF-U6c" firstAttribute="top" secondItem="njJ-ch-XWO" secondAttribute="top" id="uj5-m1-q5l"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="njJ-ch-XWO"/>
+                    </view>
+                    <connections>
+                        <outlet property="photo" destination="PwX-JF-U6c" id="CXy-kL-Jeu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KwF-Xy-2gU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4178.3999999999996" y="-252.32383808095955"/>
+        </scene>
+        <!--Experiment View Controller-->
         <scene sceneID="53P-Cs-Nd1">
             <objects>
-                <viewController id="vl1-jm-FEH" customClass="BatteryViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vl1-jm-FEH" customClass="ExperimentViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rrd-iG-raB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,6 +162,25 @@
                                 <rect key="frame" x="146" y="120" width="82" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Battery"/>
+                                <connections>
+                                    <action selector="BatteryStatusButtonClick:" destination="vl1-jm-FEH" eventType="touchUpInside" id="btH-t5-lKS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxv-Zg-yug">
+                                <rect key="frame" x="130" y="394" width="114" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="View Graph"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="ivF-ra-RLZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsV-ou-bdB">
+                                <rect key="frame" x="138" y="483" width="98" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take picture"/>
+                                <connections>
+                                    <action selector="takePictureButton_onClick:" destination="vl1-jm-FEH" eventType="touchUpInside" id="GXh-CU-qSB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,11 +189,12 @@
                     <connections>
                         <outlet property="batteryLabel" destination="B39-xp-3k3" id="L5f-aP-3ki"/>
                         <outlet property="batteryView" destination="BXR-3M-xUM" id="jCC-tO-Una"/>
+                        <segue destination="HkP-AE-94j" kind="show" identifier="showCamera_Segue" id="E0d-ob-bxv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lyc-My-R7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2807.1999999999998" y="-637.33133433283365"/>
+            <point key="canvasLocation" x="1912.8" y="-652.62368815592208"/>
         </scene>
         <!--Start Experiment View Controller-->
         <scene sceneID="Lpa-g7-X8F">
@@ -122,7 +212,7 @@
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="startButtonClick:" destination="f01-ny-ECE" eventType="touchUpInside" id="nX2-1U-xij"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="WMU-fk-LFK"/>
+                                    <segue destination="vl1-jm-FEH" kind="show" id="St1-pP-RiJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaR-ft-IrR">
@@ -131,7 +221,7 @@
                                 <state key="normal" title="View Current Experiment"/>
                                 <connections>
                                     <action selector="ViewCurrentExperimentClick:" destination="f01-ny-ECE" eventType="touchUpInside" id="7hb-9r-nuQ"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="eKb-Oh-kJD"/>
+                                    <segue destination="vl1-jm-FEH" kind="show" id="P7F-9O-EhK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -150,7 +240,6 @@
         <!--Main View Controller-->
         <scene sceneID="NvP-xh-HSD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HPf-az-JiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="8HJ-tg-OEu" customClass="MainViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Udr-Zs-uyf"/>
@@ -223,6 +312,7 @@
                         <segue destination="0HV-bx-2Ng" kind="show" identifier="scan-segue" id="Xvi-cS-XZa"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HPf-az-JiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="997.10144927536237" y="120.65217391304348"/>
         </scene>
@@ -292,6 +382,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WMU-fk-LFK"/>
+        <segue reference="St1-pP-RiJ"/>
     </inferredMetricsTieBreakers>
 </document>
