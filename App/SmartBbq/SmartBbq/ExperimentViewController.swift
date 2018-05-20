@@ -79,7 +79,7 @@ class ExperimentViewController: UIViewController {
    
     @IBAction func takePictureButton_onClick(_ sender: Any) {
         
-        performSegue(withIdentifier: "showCamera_Segue", sender: nil)
+        performSegue(withIdentifier: "showCamera_Segue", sender: self)
     }
     
     

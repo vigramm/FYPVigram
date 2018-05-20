@@ -51,7 +51,7 @@ class ImageViewController: UIViewController {
         self.getCounterNumber()
         let imageData = UIImageJPEGRepresentation(self.image, 0.8)
         
-        let storageRef=Storage.storage().reference(withPath: "mypics/demopic.jpg")
+        let storageRef=Storage.storage().reference(withPath: "experiment\(self.experimentNumber)/\(self.counterNumber).jpg")
         
         let uploadMetaData = StorageMetadata()
         uploadMetaData.contentType = "image/jpeg"
@@ -62,7 +62,8 @@ class ImageViewController: UIViewController {
             }
             else{
                 print ("Upload Complete! Heres some metadata \(metadata!)")
-                  self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counterNumber)").child("Value").setValue(metadata?.downloadURL())
+                let url:String = (metadata?.downloadURL()?.absoluteString)!
+                self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counterNumber)").child("Value").setValue(url)
             }
             
         }

@@ -25,13 +25,15 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<Experiment", style: .plain, target: self, action: #selector(ExperimentMenuOnClick))
+        
         setupCaptureSession()
         setupDevice()
         setupInputOutput()
         setupPreviewLayer()
         startRunningCaptureSession()
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<Experiment", style: .plain, target: self, action: #selector(ExperimentMenuOnClick))
+        
 
         // Do any additional setup after loading the view.
     }
@@ -48,9 +50,10 @@ class CameraViewController: UIViewController {
     
     func setupDevice()
     {
-        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.unspecified)
         
-        let devices = deviceDiscoverySession.devices
+    let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.unspecified)
+        
+      let devices = deviceDiscoverySession.devices
         for device in devices
         {
             if device.position == AVCaptureDevice.Position.back
@@ -65,7 +68,10 @@ class CameraViewController: UIViewController {
         
         currentCamera = backCamera
     }
+    
+    
     func setupInputOutput(){
+        
         do {
             let captureDeviceInput = try AVCaptureDeviceInput(device: currentCamera!)
             captureSession.addInput(captureDeviceInput)
@@ -80,8 +86,8 @@ class CameraViewController: UIViewController {
         }
         
     }
+    
     func setupPreviewLayer(){
-        
         cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         cameraPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         cameraPreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
@@ -117,7 +123,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate{
         if let imageData = photo.fileDataRepresentation(){
             print(imageData)
             image = UIImage(data: imageData)
-            performSegue(withIdentifier: "showPhoto_Segue", sender: nil)
+            performSegue(withIdentifier: "showPhoto_Segue", sender: self)
         }
     }
 }

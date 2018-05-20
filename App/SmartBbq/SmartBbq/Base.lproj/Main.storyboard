@@ -204,9 +204,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-R1-DE7">
-                                <rect key="frame" x="75" y="157" width="225" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaR-ft-IrR">
+                                <rect key="frame" x="80" y="322" width="215" height="81"/>
+                                <state key="normal" title="View Current Experiment"/>
+                                <connections>
+                                    <action selector="ViewCurrentExperimentClick:" destination="f01-ny-ECE" eventType="touchUpInside" id="7hb-9r-nuQ"/>
+                                    <segue destination="vl1-jm-FEH" kind="show" id="P7F-9O-EhK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-R1-DE7">
+                                <rect key="frame" x="80" y="176" width="215" height="30"/>
                                 <color key="backgroundColor" red="0.64508330762300936" green="0.71993972081218272" blue="0.64659725453642258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="1" green="0.969808407126866" blue="0.95618410604276183" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Start"/>
@@ -215,17 +222,16 @@
                                     <segue destination="vl1-jm-FEH" kind="show" id="St1-pP-RiJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaR-ft-IrR">
-                                <rect key="frame" x="102" y="265" width="171" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="View Current Experiment"/>
-                                <connections>
-                                    <action selector="ViewCurrentExperimentClick:" destination="f01-ny-ECE" eventType="touchUpInside" id="7hb-9r-nuQ"/>
-                                    <segue destination="vl1-jm-FEH" kind="show" id="P7F-9O-EhK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oaR-ft-IrR" firstAttribute="leading" secondItem="JcO-uS-HTq" secondAttribute="leading" constant="80" id="AN8-GM-Nor"/>
+                            <constraint firstItem="f8h-R1-DE7" firstAttribute="top" secondItem="JcO-uS-HTq" secondAttribute="top" constant="112" id="CXN-3v-0Bk"/>
+                            <constraint firstItem="JcO-uS-HTq" firstAttribute="trailing" secondItem="f8h-R1-DE7" secondAttribute="trailing" constant="80" id="dQx-7A-hO8"/>
+                            <constraint firstItem="JcO-uS-HTq" firstAttribute="bottom" secondItem="oaR-ft-IrR" secondAttribute="bottom" constant="264" id="ejx-hA-vds"/>
+                            <constraint firstItem="f8h-R1-DE7" firstAttribute="leading" secondItem="JcO-uS-HTq" secondAttribute="leading" constant="80" id="uDs-o6-Wo9"/>
+                            <constraint firstItem="JcO-uS-HTq" firstAttribute="trailing" secondItem="oaR-ft-IrR" secondAttribute="trailing" constant="80" id="vWC-hE-E1V"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JcO-uS-HTq"/>
                     </view>
                     <navigationItem key="navigationItem" id="kXq-Eb-SqT"/>
@@ -250,26 +256,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wifi Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L84-4B-Cl4">
-                                <rect key="frame" x="144" y="111" width="87.5" height="30"/>
+                                <rect key="frame" x="144" y="67" width="87.5" height="30"/>
                                 <color key="backgroundColor" red="0.9651521216030684" green="1" blue="0.96974193338583137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wifi Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jyf-Lp-EXB">
-                                <rect key="frame" x="131" y="155" width="112" height="30"/>
+                                <rect key="frame" x="131" y="111" width="112" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Experiment Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZA-aj-0SH">
-                                <rect key="frame" x="120" y="193" width="135.5" height="30"/>
+                                <rect key="frame" x="120" y="149" width="135.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kk-6U-fmf">
-                                <rect key="frame" x="129" y="239" width="116" height="30"/>
+                                <rect key="frame" x="129" y="195" width="116" height="30"/>
                                 <state key="normal" title="Start Experiment"/>
                                 <connections>
                                     <action selector="sendButtonPressed:" destination="8HJ-tg-OEu" eventType="touchUpInside" id="dXQ-MJ-W34"/>
@@ -314,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPf-az-JiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997.10144927536237" y="120.65217391304348"/>
+            <point key="canvasLocation" x="1028" y="120"/>
         </scene>
         <!--Scan Table View Controller-->
         <scene sceneID="WKb-V9-elH">
@@ -345,24 +351,6 @@
             <point key="canvasLocation" x="1868.1159420289857" y="120.65217391304348"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="0At-my-cKn">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LtD-xC-VAj" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Akj-7o-BNf">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8HJ-tg-OEu" kind="relationship" relationship="rootViewController" id="bkr-Qq-feY"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PC7-9i-rR7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="46" y="120"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="zgq-qn-gri">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bX4-z1-Edo" sceneMemberID="viewController">
@@ -382,6 +370,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="St1-pP-RiJ"/>
+        <segue reference="P7F-9O-EhK"/>
     </inferredMetricsTieBreakers>
 </document>
