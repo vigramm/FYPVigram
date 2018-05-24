@@ -2,6 +2,19 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 
+/* Time Stamp */
+#include <NTPClient.h>
+#include <WiFiUdp.h>
+
+#define NTP_OFFSET  +1  * 60 * 60 // In seconds
+#define NTP_INTERVAL 60 * 1000    // In miliseconds
+#define NTP_ADDRESS  "0.uk.pool.ntp.org"
+
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP, NTP_ADDRESS, NTP_OFFSET, NTP_INTERVAL);
+
+
+
 const char* ssid = "Vigram's iPhone";
 const char* password =  "abcdefgh";
 
@@ -47,25 +60,11 @@ void setup()
   digitalWrite(WifiLedIndicator, HIGH);
   Serial.println("Connected to the WiFi network");
 
-  //Initializing http object
-  HTTPClient http;
 
-  // Connecting to the database to get the total number of experiments conducted as of now
-  // We now have exprimentNumber
-  http.begin("https://smartbbq-9bfc3.firebaseio.com/TotalExperiments.json"); 
-  int httpCode = http.GET();                                     
-  if (httpCode > 0) //Check for the returning code, <0 is an error
-  {
-    experimentNumber= (http.getString().toInt())+1;
-    //        Serial.println(httpCode);
-    //        Serial.println(experimentNumber);
-  }
-  else 
-  {
-    Serial.println("Error on HTTP request");
-  }
- 
-  http.end(); //Free the resources
+  timeClient.begin();
+  
+
+
    
 }
 
@@ -84,8 +83,8 @@ void loop() {
     if (httpCode > 0) 
     { 
       ESPmode= http.getString();
-//        Serial.println(httpCode);
-//        Serial.println(ESPmode);
+        Serial.println(httpCode);
+        Serial.println(ESPmode);
     }
     else 
     {
@@ -97,43 +96,103 @@ void loop() {
 
     //Check if ESP is in Start Mode, temperature data will be recorded only if esp is in start mode
     if(ESPmode.equals("\"Start\""))
-    { 
+    {
+        //Initializing http object
+  HTTPClient http;
+
+  // Connecting to the database to get the total number of experiments conducted as of now
+  // We now have exprimentNumber
+  http.begin("https://smartbbq-9bfc3.firebaseio.com/TotalExperiments.json"); 
+  int httpCode = http.GET();                                     
+  if (httpCode > 0) //Check for the returning code, <0 is an error
+  {
+    experimentNumber=http.getString().toInt();
+    //        Serial.println(httpCode);
+    //        Serial.println(experimentNumber);
+  }
+  else 
+  {
+    Serial.println("Error on HTTP request");
+  }
+ 
+  http.end(); //Free the resources
+
+      
+      //Get current time
+      timeClient.update();
+      String formattedTime = timeClient.getFormattedTime();
+      Serial.print(formattedTime);
+
+      http.begin("https://smartbbq-9bfc3.firebaseio.com/CurrentExperimentCounter.json"); 
+       httpCode = http.GET();                                     
+      if (httpCode > 0) //Check for the returning code, <0 is an error
+      {
+        counter= (http.getString().toInt())+1;
+      }
+      else 
+      {
+        Serial.println("Error on HTTP request");
+      }
+      http.end();
+
+    
+
+      
       // Temperature will only be recorded if ESP is connected to Wifi
       if(WiFi.status()== WL_CONNECTED)
       {   
         float resistanceOfResistors=1000.0; //Voltage of Resistors
-        float voltageReference=3.3; // Input Voltage on rails
+        float voltageReference=2.7; // Input Voltage on rails
         int total=0;
         float temp=0;
 
+        float sensorValueTotal=0;
         // For loop to average over x number of readings
         for(int i=0;i<numReadings;i++)
         {
           float sensorValue1=analogRead(32); // Reading from the adc pin
+          sensorValueTotal=sensorValueTotal+sensorValue1;
+          Serial.print("SensorValue"+String(sensorValueTotal));
           float voltageOutput1= sensorValue1 * 1.1425 *(voltageReference / 4095.0); // Convert analog value to voltage value(bridge)
           float resistancePt1000=voltageToResistancePotentialDivider(resistanceOfResistors, voltageReference, voltageOutput1); // Calculate resistance of Pt1000 using voltage from bridge
-          Serial.println("Resistance= "+String(resistancePt1000));
+//          Serial.println("Resistance= "+String(resistancePt1000));
           temp=temp+GetPlatinumRTD(resistancePt1000);
-          Serial.println("Temp= "+String(temp+14.0));
+//          Serial.println("Temp= "+String(temp+14.0));
           delay(500);
         }
 
+        sensorValueTotal=sensorValueTotal/numReadings;
+        
         // Finding the average of the x readings
         temp=temp/numReadings;
         Serial.print("FINAL temp= ");
 
         // This makes the temperature readings accurate
-        float finaltemp=temp+14.0;
-        Serial.print(temp+14.0);
+        float finaltemp=temp+24.0;
+        Serial.print(temp+24.0);
         Serial.println();
 
   
         //POST to the database
         HTTPClient http; 
-        String json="{\n\""+String(counter)+"\" : "+finaltemp+"\n}";
-        Serial.print(json);
-        HTTPRequest("https://smartbbq-9bfc3.firebaseio.com/experiment"+String(experimentNumber)+".json", json, "PATCH");
+        //String json="{\n\"Value\" : "+String(finaltemp)+",\n\"Time\" : \""+formattedTime+"\"\n}";
+        String json="{\n\"Value\" : "+String(finaltemp)+",\n\"Time\" : \""+formattedTime+"\",\n\"SensorValue\" : "+String(sensorValueTotal)+"\n}";
 
+
+        Serial.print(json);
+        HTTPRequest("https://smartbbq-9bfc3.firebaseio.com/experiment"+String(experimentNumber)+"/"+String(counter)+".json", json, "PATCH");
+
+
+//        json="{\n\""+String(counter)+"\" : "+String(now)+"\n}";
+//        Serial.print(json);
+//        HTTPRequest("https://smartbbq-9bfc3.firebaseio.com/experiment"+String(experimentNumber)+".json", json, "PATCH");
+
+         //POST current counter 
+        json="{\n\"CurrentExperimentCounter\" : "+String(counter)+"\n}";
+        
+        HTTPRequest("https://smartbbq-9bfc3.firebaseio.com/.json", json, "PATCH");
+
+        
         counter++;
 
         //GET battery value

@@ -63,7 +63,7 @@ class ImageViewController: UIViewController {
             else{
                 print ("Upload Complete! Heres some metadata \(metadata!)")
                 let url:String = (metadata?.downloadURL()?.absoluteString)!
-                self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counterNumber)").child("Value").setValue(url)
+                self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counterNumber)").child("ImageURL").setValue(url)
             }
             
         }

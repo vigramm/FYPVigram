@@ -1,61 +1,48 @@
 //
-//  StartExperimentViewController.swift
+//  NotesViewController.swift
 //  SmartBbq
 //
-//  Created by Vigram Mohan on 26/04/2018.
+//  Created by Vigram Mohan on 21/05/2018.
 //  Copyright © 2018 Vigram. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class StartExperimentViewController: UIViewController {
+
+class NotesViewController: UIViewController {
 
     var ref: DatabaseReference?
+    
+    
     var experimentNumber: Int = 0
+    var counterNumber: Int = 0
+    @IBOutlet weak var notesTextView: UITextView!
     
-    var mode: String=""
-    
-    
-    @IBOutlet weak var ViewCurrentButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-
         self.getExperimentNumber()
+        self.getCounterNumber()
 
 
-        
         // Do any additional setup after loading the view.
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        //elf.ViewCurrentButton.isHidden=true
-        self.getMode()
-        
-        if(self.mode == "Start")
-        {
-            self.ViewCurrentButton.isHidden=false
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func startButtonClick(_ sender: Any)
-    {
-    self.ref?.updateChildValues(["TotalExperiments":self.experimentNumber+1])
-        self.ref?.updateChildValues(["Mode":"Start"])
-        self.ref?.updateChildValues(["CurrentExperimentCounter":0])
 
+    @IBAction func addNotesButton_onClick(_ sender: Any)
+    {
+        self.getCounterNumber()
+        let notes=self.notesTextView.text
+        self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counterNumber)").child("Notes").setValue(notes)
     }
-    
-    
-    @IBAction func ViewCurrentExperimentClick(_ sender: Any) {
-    }
+
     
     func getExperimentNumber()
     {
@@ -64,8 +51,9 @@ class StartExperimentViewController: UIViewController {
             if let data = snapshot.value as? Int
             {
                 self.experimentNumber=data
+                print("Experiment")
                 print(data)
-                print(self.experimentNumber)
+                
                 
             }
             else
@@ -77,14 +65,15 @@ class StartExperimentViewController: UIViewController {
         }
     }
     
-    func getMode(){
-        self.ref?.child("Mode").observe(.value, with: { snapshot in
-            if let data = snapshot.value as? String
+    func getCounterNumber(){
+        
+        ref = Database.database().reference()
+        self.ref?.child("CurrentExperimentCounter").observe(.value, with: { snapshot in
+            if let data = snapshot.value as? Int
             {
-                self.mode=data
+                self.counterNumber=data
+                print("Counter")
                 print(data)
-                print(self.experimentNumber)
-                
             }
             else
             {
@@ -93,7 +82,7 @@ class StartExperimentViewController: UIViewController {
         }){ (error) in
             print(error.localizedDescription)
         }
+        
     }
-    
-    
+
 }

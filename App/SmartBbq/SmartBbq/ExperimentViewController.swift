@@ -23,7 +23,7 @@ class ExperimentViewController: UIViewController {
         didSet {
             let fractionalProgress = batteryPercent / 100.0
             let animated = batteryPercent != 0
-            
+            print("123")
             batteryView.setProgress(fractionalProgress, animated: animated)
             batteryLabel.text = ("\(batteryPercent)%")
         }
@@ -31,8 +31,8 @@ class ExperimentViewController: UIViewController {
     
       override func viewDidLoad() {
         super.viewDidLoad()
-         ref = Database.database().reference()
-        
+        ref = Database.database().reference()
+        self.title="Control Panel"
 
         // Do any additional setup after loading the view.
     }
@@ -44,15 +44,15 @@ class ExperimentViewController: UIViewController {
     
 
     
-    func getDataFirebase(){
+    func getBatteryInfo(){
 
-    self.ref?.child("experiment1").child("information").child("batteryPercent").observe(.value, with: { snapshot in
+    self.ref?.child("batteryPercent").observe(.value, with: { snapshot in
             
             if let data = snapshot.value as? Float
             {
                 self.batteryPercent=data;
                 
-                print(data)
+                print(self.batteryPercent)
             }
             else
             {
@@ -67,7 +67,8 @@ class ExperimentViewController: UIViewController {
     
     
     @IBAction func BatteryStatusButtonClick(_ sender: Any) {
-        getDataFirebase()
+        getBatteryInfo()
+
     }
 
     func delay(_ delay:Double, closure:@escaping ()->()) {
@@ -80,6 +81,13 @@ class ExperimentViewController: UIViewController {
     @IBAction func takePictureButton_onClick(_ sender: Any) {
         
         performSegue(withIdentifier: "showCamera_Segue", sender: self)
+    }
+    
+    
+    
+    @IBAction func AddNotesButtonClick(_ sender: Any)
+    {
+        performSegue(withIdentifier: "addNotes_Segue", sender: self)
     }
     
     
