@@ -17,6 +17,8 @@ class ExperimentViewController: UIViewController {
     
     @IBOutlet weak var batteryLabel: UILabel!
     
+    var experimentNumber: Int = 0
+    
     var ref: DatabaseReference?
 
     var batteryPercent:Float = 0 {
@@ -33,6 +35,8 @@ class ExperimentViewController: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         self.title="Control Panel"
+        
+        self.totalExperiments()
 
         // Do any additional setup after loading the view.
     }
@@ -85,11 +89,47 @@ class ExperimentViewController: UIViewController {
     
     
     
+    
+    @IBAction func viewGraphClick(_ sender: Any)
+    {
+        performSegue(withIdentifier: "viewGraph_Segue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewGraph_Segue" {
+         
+                let controller = segue.destination as! GraphViewController
+            controller.experimentNumber = self.experimentNumber
+            
+        }
+        print("123")
+    }
+    
     @IBAction func AddNotesButtonClick(_ sender: Any)
     {
         performSegue(withIdentifier: "addNotes_Segue", sender: self)
     }
     
+    
+    
+    func totalExperiments()
+    {
+        ref = Database.database().reference()
+        self.ref?.child("TotalExperiments").observeSingleEvent(of : .value, with: { snapshot in
+            if let data = snapshot.value as? Int
+            {
+                self.experimentNumber=data
+            }
+            else
+            {
+                
+            }
+        }){ (error) in
+            print(error.localizedDescription)
+        }
+        
+        
+    }
     
 
     /*

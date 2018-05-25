@@ -17,7 +17,7 @@ class GraphViewController: UIViewController {
     
     var firebaseData = [Double]()
     
-    var experimentNumber: Int = 0
+    var experimentNumber: Int!
     
     var counter: Int = 0
     
@@ -30,7 +30,7 @@ class GraphViewController: UIViewController {
         super.viewDidLoad()
         
         ref = Database.database().reference()
-        getExperimentNumber()
+        //getExperimentNumber()
 
         
 
@@ -73,18 +73,17 @@ class GraphViewController: UIViewController {
     
     func getDataFirebase(){
 
-        print(self.experimentNumber)
-        let experimentName="experiment\(self.experimentNumber)"
+        print(self.experimentNumber!)
+        let experimentName="experiment\(self.experimentNumber!)"
         print(experimentName)
+        print("\(self.counter)")
         
         self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counter)").child("Value").observe(.value, with: { snapshot in
             
             if let data = snapshot.value as? Double
             {
                 self.firebaseData.append(data)
-                
-            //self.firebaseData.append(data)
-            print(data)
+                print(data)
             }
             else
             {
@@ -119,33 +118,12 @@ class GraphViewController: UIViewController {
         data.addDataSet(line1)
         
         graphChart.data = data
-        
         graphChart.chartDescription?.text = "Smart Barbeque"
         
         
     }
     
-    func getExperimentNumber()
-    {
-        
-        self.ref?.child("TotalExperiments").observe(.value, with: { snapshot in
-            if let data = snapshot.value as? Int
-            {
-                self.experimentNumber=data
-                print(data)
-                print("inside\(self.experimentNumber)")
-            }
-            else
-            {
-                
-            }
-        }){ (error) in
-            print(error.localizedDescription)
-        }
-        print("experiment\(self.experimentNumber)")
 
-
-    }
 
 
 }

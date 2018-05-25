@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class StartExperimentViewController: UIViewController {
 
     var ref: DatabaseReference?
@@ -24,7 +25,6 @@ class StartExperimentViewController: UIViewController {
       
 
         self.getExperimentNumber()
-
 
         
         // Do any additional setup after loading the view.
@@ -47,7 +47,7 @@ class StartExperimentViewController: UIViewController {
     
     @IBAction func startButtonClick(_ sender: Any)
     {
-    self.ref?.updateChildValues(["TotalExperiments":self.experimentNumber+1])
+        self.ref?.updateChildValues(["TotalExperiments":self.experimentNumber+1])
         self.ref?.updateChildValues(["Mode":"Start"])
         self.ref?.updateChildValues(["CurrentExperimentCounter":0])
 
@@ -56,6 +56,18 @@ class StartExperimentViewController: UIViewController {
     
     @IBAction func ViewCurrentExperimentClick(_ sender: Any) {
     }
+    
+    
+    
+    @IBAction func ViewPreviousExperimentsClick(_ sender: Any) {
+        
+       
+        let previousExperimentsVC = PreviousExperimentsViewController()
+        
+        previousExperimentsVC.experimentNumber=self.experimentNumber
+        performSegue(withIdentifier: "previousExperiments_Segue", sender: self)
+    }
+    
     
     func getExperimentNumber()
     {
@@ -70,11 +82,12 @@ class StartExperimentViewController: UIViewController {
             }
             else
             {
-                
             }
         }){ (error) in
             print(error.localizedDescription)
         }
+        print("experimentcheck\(self.experimentNumber)")
+
     }
     
     func getMode(){

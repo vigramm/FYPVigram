@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bX4-z1-Edo">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,7 +16,7 @@
             <objects>
                 <viewController storyboardIdentifier="VC" id="BYZ-38-t0r" customClass="GraphViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHT-VX-3ud">
@@ -70,16 +70,62 @@
             </objects>
             <point key="canvasLocation" x="3199" y="-1390"/>
         </scene>
+        <!--Previous Experiments View Controller-->
+        <scene sceneID="M2l-Sn-2XK">
+            <objects>
+                <viewController storyboardIdentifier="previousExperimentsVC" id="gng-YQ-IcT" customClass="PreviousExperimentsViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aVe-6D-Rkb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zfm-kw-Q29">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="4NY-xq-Ij8">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4NY-xq-Ij8" id="teV-6n-KHd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.93009075792341778" green="0.84884173596137158" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gng-YQ-IcT" id="0Q6-XG-Obh"/>
+                                    <outlet property="delegate" destination="gng-YQ-IcT" id="cY7-N5-J9j"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zfm-kw-Q29" firstAttribute="trailing" secondItem="fQp-LV-GyG" secondAttribute="trailing" id="7Si-Qy-Lwb"/>
+                            <constraint firstItem="Zfm-kw-Q29" firstAttribute="bottom" secondItem="fQp-LV-GyG" secondAttribute="bottom" id="8fb-1B-J3P"/>
+                            <constraint firstItem="Zfm-kw-Q29" firstAttribute="leading" secondItem="fQp-LV-GyG" secondAttribute="leading" id="dLy-Za-SHh"/>
+                            <constraint firstItem="Zfm-kw-Q29" firstAttribute="top" secondItem="fQp-LV-GyG" secondAttribute="top" id="lCj-to-6w4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fQp-LV-GyG"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Zfm-kw-Q29" id="BDN-qu-Eqf"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ViewExperimentGraph_Segue" id="Cin-Hu-DCi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3zl-W6-6so" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1918" y="-100"/>
+        </scene>
         <!--Camera View Controller-->
         <scene sceneID="y5C-9Y-1cI">
             <objects>
                 <viewController id="HkP-AE-94j" customClass="CameraViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gnp-jq-CX2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6a-hj-4ro">
-                                <rect key="frame" x="157.66666666666666" y="673" width="60" height="60"/>
+                                <rect key="frame" x="157.5" y="562" width="60" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.96771266007236167" blue="0.93094908841098634" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="0Dz-L7-tv3"/>
@@ -116,7 +162,7 @@
             <objects>
                 <viewController id="8nZ-vQ-14y" customClass="NotesViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZdS-Wo-BAj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rd8-T1-bRc">
@@ -152,11 +198,11 @@
             <objects>
                 <viewController id="bdh-RT-7xI" customClass="ImageViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sBi-rM-FIb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PwX-JF-U6c">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -181,7 +227,7 @@
             <objects>
                 <viewController id="vl1-jm-FEH" customClass="ExperimentViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rrd-iG-raB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BXR-3M-xUM">
@@ -189,7 +235,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsV-ou-bdB">
-                                <rect key="frame" x="0.0" y="293" width="187.66666666666666" height="202.66666666666663"/>
+                                <rect key="frame" x="0.0" y="233" width="187.5" height="167"/>
                                 <color key="backgroundColor" red="0.0" green="0.69884228530299297" blue="0.84972347009000437" alpha="0.3456627155" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Take picture"/>
                                 <connections>
@@ -197,7 +243,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhF-LR-if0">
-                                <rect key="frame" x="187.66666666666663" y="293" width="187.33333333333337" height="202.66666666666663"/>
+                                <rect key="frame" x="187.5" y="233" width="187.5" height="167"/>
                                 <color key="backgroundColor" red="0.84972347009000437" green="0.42222989698984004" blue="0.0" alpha="0.3456627155" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Add Notes"/>
                                 <connections>
@@ -205,7 +251,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfj-2k-NyE">
-                                <rect key="frame" x="0.0" y="88" width="187.66666666666666" height="203"/>
+                                <rect key="frame" x="0.0" y="64" width="187.5" height="167"/>
                                 <color key="backgroundColor" red="0.26054701060000002" green="0.87747219080000005" blue="0.12764732249999999" alpha="0.3456627155" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Battery"/>
                                 <connections>
@@ -213,15 +259,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxv-Zg-yug">
-                                <rect key="frame" x="187.66666666666663" y="88" width="187.33333333333337" height="203"/>
+                                <rect key="frame" x="187.5" y="64" width="187.5" height="167"/>
                                 <color key="backgroundColor" red="0.88176661729812622" green="0.0" blue="0.78410142423750329" alpha="0.3456627155" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="View Graph"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="ivF-ra-RLZ"/>
+                                    <action selector="viewGraphClick:" destination="vl1-jm-FEH" eventType="touchUpInside" id="oRs-Ic-IvQ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B39-xp-3k3">
-                                <rect key="frame" x="152" y="487" width="47" height="21"/>
+                                <rect key="frame" x="277" y="639" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -254,22 +300,23 @@
                         <outlet property="batteryView" destination="BXR-3M-xUM" id="jCC-tO-Una"/>
                         <segue destination="HkP-AE-94j" kind="show" identifier="showCamera_Segue" id="E0d-ob-bxv"/>
                         <segue destination="8nZ-vQ-14y" kind="show" identifier="addNotes_Segue" id="lja-7l-cfa"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="viewGraph_Segue" id="exs-yn-b6B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lyc-My-R7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1912.8" y="-652.62368815592208"/>
+            <point key="canvasLocation" x="1918" y="-1016"/>
         </scene>
         <!--Start Experiment View Controller-->
         <scene sceneID="Lpa-g7-X8F">
             <objects>
                 <viewController storyboardIdentifier="StartExperimentVC" id="f01-ny-ECE" customClass="StartExperimentViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TIu-9J-uGH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-R1-DE7">
-                                <rect key="frame" x="1" y="89.999999999999986" width="375" height="229.66666666666663"/>
+                                <rect key="frame" x="1" y="66" width="375" height="186"/>
                                 <color key="backgroundColor" red="0.61855470882008867" green="0.78082760638129933" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="1" green="0.969808407126866" blue="0.95618410604276183" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Reset">
@@ -277,11 +324,10 @@
                                 </state>
                                 <connections>
                                     <action selector="startButtonClick:" destination="f01-ny-ECE" eventType="touchUpInside" id="nX2-1U-xij"/>
-                                    <segue destination="vl1-jm-FEH" kind="show" id="St1-pP-RiJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaR-ft-IrR">
-                                <rect key="frame" x="1" y="317.66666666666669" width="375" height="243.00000000000006"/>
+                                <rect key="frame" x="1" y="250" width="375" height="199.5"/>
                                 <color key="backgroundColor" red="1" green="0.55659514362204954" blue="0.39032530292583856" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="View Current Experiment">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -289,6 +335,18 @@
                                 <connections>
                                     <action selector="ViewCurrentExperimentClick:" destination="f01-ny-ECE" eventType="touchUpInside" id="7hb-9r-nuQ"/>
                                     <segue destination="vl1-jm-FEH" kind="show" id="P7F-9O-EhK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6z-9z-oNr">
+                                <rect key="frame" x="1" y="457" width="375" height="199.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.55659514359999995" blue="0.3903253029" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="View Previous Experiments">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="ViewCurrentExperimentClick:" destination="f01-ny-ECE" eventType="touchUpInside" id="eQB-Kv-Iep"/>
+                                    <action selector="ViewPreviousExperimentsClick:" destination="f01-ny-ECE" eventType="touchUpInside" id="89S-GU-FQC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -309,6 +367,7 @@
                     <navigationItem key="navigationItem" id="kXq-Eb-SqT"/>
                     <connections>
                         <outlet property="ViewCurrentButton" destination="oaR-ft-IrR" id="AKk-kx-5jO"/>
+                        <segue destination="gng-YQ-IcT" kind="show" identifier="previousExperiments_Segue" id="btw-lI-Dfj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6m-SM-d6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -324,30 +383,30 @@
                         <viewControllerLayoutGuide type="bottom" id="jyL-bc-2fh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bSg-Wu-d1D">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wifi Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L84-4B-Cl4">
-                                <rect key="frame" x="143.66666666666666" y="91" width="88" height="30"/>
+                                <rect key="frame" x="143.5" y="67" width="88" height="30"/>
                                 <color key="backgroundColor" red="0.9651521216030684" green="1" blue="0.96974193338583137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wifi Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jyf-Lp-EXB">
-                                <rect key="frame" x="131.66666666666666" y="135" width="112" height="30"/>
+                                <rect key="frame" x="131.5" y="111" width="112" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Experiment Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZA-aj-0SH">
-                                <rect key="frame" x="119.66666666666669" y="173" width="136" height="30"/>
+                                <rect key="frame" x="119.5" y="149" width="136" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kk-6U-fmf">
-                                <rect key="frame" x="129.66666666666666" y="219" width="116" height="30"/>
+                                <rect key="frame" x="129.5" y="195" width="116" height="30"/>
                                 <state key="normal" title="Start Experiment"/>
                                 <connections>
                                     <action selector="sendButtonPressed:" destination="8HJ-tg-OEu" eventType="touchUpInside" id="dXQ-MJ-W34"/>
@@ -399,7 +458,7 @@
             <objects>
                 <tableViewController id="0HV-bx-2Ng" customClass="ScanTableViewController" customModule="SmartBbq" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bQg-w7-mQc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -407,7 +466,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EA1-Bb-h35" id="lOF-yU-JGo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -428,7 +487,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bX4-z1-Edo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4IN-Mt-BUt">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -442,6 +501,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="P7F-9O-EhK"/>
+        <segue reference="exs-yn-b6B"/>
     </inferredMetricsTieBreakers>
 </document>
