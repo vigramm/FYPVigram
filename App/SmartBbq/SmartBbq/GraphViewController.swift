@@ -29,7 +29,7 @@ class GraphViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref = Database.database().reference()
+        
         //getExperimentNumber()
 
         
@@ -39,9 +39,9 @@ class GraphViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
+        ref = Database.database().reference()
         getDataFirebase()
-        updateGraph()
+        
 
     }
 
@@ -78,22 +78,51 @@ class GraphViewController: UIViewController {
         print(experimentName)
         print("\(self.counter)")
         
-        self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counter)").child("Value").observe(.value, with: { snapshot in
+       
+        
+        var totalValues: Int = 0
+        
+        self.ref?.child("experiment\(self.experimentNumber!)").child("totalExperimentValues").observeSingleEvent(of: .value, with: { snapshot in
             
-            if let data = snapshot.value as? Double
+            if let data = snapshot.value as? Int
             {
-                self.firebaseData.append(data)
-                print(data)
+                totalValues = data
+                self.getAllValues(totalValues: totalValues)
             }
             else
             {
-                
+                print("not working")
             }
         }){ (error) in
-                    print(error.localizedDescription)
+            print(error.localizedDescription)
         }
-        counter=counter+1
+        print("totalValues\(totalValues)")
+
         
+        
+    }
+    
+    func getAllValues(totalValues: Int)
+    {
+        for i in 0...totalValues
+        {
+            
+            self.ref?.child("experiment\(self.experimentNumber!)").child("\(i)").child("Value").observeSingleEvent(of: .value, with: { snapshot in
+                
+                if let data = snapshot.value as? Double
+                {
+                    self.firebaseData.append(data)
+                    self.updateGraph()
+                    print(data)
+                }
+                else
+                {
+                    print("not working")
+                }
+            }){ (error) in
+                print(error.localizedDescription)
+            }
+        }
     }
     
 
