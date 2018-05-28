@@ -17,6 +17,8 @@ class GraphViewController: UIViewController {
     
     var firebaseData = [Double]()
     
+    var firebaseDataNotes = [String]()
+    
     var experimentNumber: Int!
     
     var counter: Int = 0
@@ -31,7 +33,7 @@ class GraphViewController: UIViewController {
         
         
         //getExperimentNumber()
-
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(BackButtonOnClick))
         
 
         
@@ -40,7 +42,7 @@ class GraphViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         ref = Database.database().reference()
-        getDataFirebase()
+        totalExperimentNumber()
         
 
     }
@@ -51,27 +53,18 @@ class GraphViewController: UIViewController {
     }
 
 
-    // IBAction connected to the "LED1 ON" button
-    @IBAction func led1_Button(_ sender: Any)
-    {
-        getDataFirebase()
 
-    }
-    @IBAction func led2_Button(_ sender: Any)
-    {
-        updateGraph()
-        
-    }
+    
     
     
  
-    @IBAction func ENDButtonClick(_ sender: Any)
+   @objc func BackButtonOnClick(_ sender: Any)
     {
-        self.ref?.updateChildValues(["Mode":"End"])
+//        self.ref?.updateChildValues(["Mode":"End"])
         self.navigationController?.popViewController(animated: true)
     }
     
-    func getDataFirebase(){
+    func totalExperimentNumber(){
 
         print(self.experimentNumber!)
         let experimentName="experiment\(self.experimentNumber!)"
@@ -122,6 +115,8 @@ class GraphViewController: UIViewController {
             }){ (error) in
                 print(error.localizedDescription)
             }
+            
+            
         }
     }
     
@@ -138,14 +133,38 @@ class GraphViewController: UIViewController {
 
         }
   
-        let line1 = LineChartDataSet(values: lineChartEntry, label: "Number")
+        let chartDataSet = LineChartDataSet(values: lineChartEntry, label: "Temperature")
         
-        line1.colors = [NSUIColor.blue]
+        
         
         let data = LineChartData()
         
-        data.addDataSet(line1)
+    
+        let gradientColor=[UIColor.orange.cgColor, UIColor.clear.cgColor] as CFArray
+        let colorLocations:[CGFloat] = [1.0, 0.0]
+        guard let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColor, locations:colorLocations) else { print("gradient error"); return}
         
+        
+        
+        data.addDataSet(chartDataSet)
+        data.setDrawValues(false)
+        
+        
+        chartDataSet.colors = [NSUIColor.orange]
+        chartDataSet.circleRadius = 2.0
+        chartDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+        chartDataSet.drawFilledEnabled = true;
+       
+        graphChart.xAxis.labelPosition = .bottom
+        graphChart.xAxis.drawGridLinesEnabled = false
+        graphChart.legend.enabled = true
+        
+        //Balloon Marker that appears on hovering
+        let marker: BalloonMarker = BalloonMarker(color: UIColor.lightGray, font: UIFont(name: "Helvetica", size: 12)!, textColor: UIColor.white, insets: UIEdgeInsets(top: 7.0, left: 7.0, bottom: 7.0, right: 7.0))
+        
+        marker.minimumSize = CGSize(width: 50.0, height: 50.0)
+        graphChart.marker = marker
+     
         graphChart.data = data
         graphChart.chartDescription?.text = "Smart Barbeque"
         

@@ -19,46 +19,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHT-VX-3ud">
-                                <rect key="frame" x="42" y="30" width="73" height="48"/>
-                                <color key="backgroundColor" red="0.83532482385635376" green="1" blue="0.69296020269393921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="LED1"/>
-                                <connections>
-                                    <action selector="led1_Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MYl-Tq-fj6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTQ-nI-Kzs">
-                                <rect key="frame" x="269" y="30" width="63" height="48"/>
-                                <color key="backgroundColor" red="0.46257095723508224" green="1" blue="0.0" alpha="0.30559717465753422" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="LED2"/>
-                                <connections>
-                                    <action selector="led2_Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="27r-rr-noM"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="li9-lU-cev" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="173" width="375" height="458"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="li9-lU-cev" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="64" width="375" height="458"/>
                                 <color key="backgroundColor" red="1" green="0.86992777510096164" blue="0.95262921168749382" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lX-JL-xYt">
-                                <rect key="frame" x="154" y="74" width="66" height="44"/>
-                                <state key="normal" title="END "/>
-                                <connections>
-                                    <action selector="ENDButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ed-K0-Iyx"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="li9-lU-cev" secondAttribute="trailing" id="3WI-7l-ksb"/>
-                            <constraint firstItem="li9-lU-cev" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7tb-Dg-S7l"/>
-                            <constraint firstItem="li9-lU-cev" firstAttribute="top" secondItem="YHT-VX-3ud" secondAttribute="bottom" constant="95" id="QNS-4E-xkZ"/>
-                            <constraint firstItem="li9-lU-cev" firstAttribute="top" secondItem="qTQ-nI-Kzs" secondAttribute="bottom" constant="95" id="Yd8-Zc-yq8"/>
-                            <constraint firstItem="7lX-JL-xYt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="dOl-rQ-UEf"/>
-                            <constraint firstItem="li9-lU-cev" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-36" id="f9g-6X-aa9"/>
-                            <constraint firstItem="li9-lU-cev" firstAttribute="top" secondItem="7lX-JL-xYt" secondAttribute="bottom" constant="55" id="hoq-JG-Gac"/>
-                            <constraint firstItem="7lX-JL-xYt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="l9h-6i-XYR"/>
-                            <constraint firstItem="YHT-VX-3ud" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="pgO-7D-zyf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qTQ-nI-Kzs" secondAttribute="trailing" constant="43" id="vz3-2K-1XJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="li9-lU-cev" secondAttribute="bottom" constant="145" id="aX1-J4-nfE"/>
+                            <constraint firstItem="li9-lU-cev" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aiF-aM-g1m"/>
+                            <constraint firstItem="li9-lU-cev" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tSm-lb-9wx"/>
+                            <constraint firstItem="li9-lU-cev" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="waa-1O-OfU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -165,17 +136,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rd8-T1-bRc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="143"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rd8-T1-bRc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="411"/>
                                 <color key="backgroundColor" red="1" green="0.97873778128900624" blue="0.7364154678799979" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mm0-d3-IlN">
-                                <rect key="frame" x="121" y="208" width="130" height="81"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mm0-d3-IlN">
+                                <rect key="frame" x="122" y="540" width="130" height="30"/>
                                 <state key="normal" title="Add Notes"/>
                                 <connections>
                                     <action selector="addNotesButton_onClick:" destination="8nZ-vQ-14y" eventType="touchUpInside" id="xG9-wG-a9e"/>
@@ -183,6 +152,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rd8-T1-bRc" firstAttribute="top" secondItem="7TR-uU-L1P" secondAttribute="top" id="0io-0I-CTl"/>
+                            <constraint firstItem="Rd8-T1-bRc" firstAttribute="trailing" secondItem="7TR-uU-L1P" secondAttribute="trailing" id="5P4-Yz-tUx"/>
+                            <constraint firstItem="Rd8-T1-bRc" firstAttribute="leading" secondItem="7TR-uU-L1P" secondAttribute="leading" id="A9R-Mn-IER"/>
+                            <constraint firstItem="7TR-uU-L1P" firstAttribute="trailing" secondItem="Mm0-d3-IlN" secondAttribute="trailing" constant="123" id="J4p-Vw-klv"/>
+                            <constraint firstItem="Mm0-d3-IlN" firstAttribute="top" secondItem="Rd8-T1-bRc" secondAttribute="bottom" constant="65" id="eD5-0y-2gX"/>
+                            <constraint firstItem="Mm0-d3-IlN" firstAttribute="leading" secondItem="7TR-uU-L1P" secondAttribute="leading" constant="122" id="h5A-VH-a40"/>
+                            <constraint firstItem="7TR-uU-L1P" firstAttribute="bottom" secondItem="Rd8-T1-bRc" secondAttribute="bottom" constant="192" id="jim-FT-RM2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7TR-uU-L1P"/>
                     </view>
                     <connections>
