@@ -58,7 +58,45 @@ void setup()
 
   // Making WifiIndicator Pin high as wifi will be connected once the program reaches here
   digitalWrite(WifiLedIndicator, HIGH);
+
+  
   Serial.println("Connected to the WiFi network");
+
+
+    
+    HTTPClient http;
+// Get Experiment number
+      http.begin("https://smartbbq-9bfc3.firebaseio.com/TotalExperiments.json"); 
+  int httpCode = http.GET();                                     
+  if (httpCode > 0) //Check for the returning code, <0 is an error
+  {
+    experimentNumber=http.getString().toInt();
+    //        Serial.println(httpCode);
+    //        Serial.println(experimentNumber);
+  }
+  else 
+  {
+    Serial.println("Error on HTTP request");
+  }
+ 
+  http.end(); //Free the resources
+
+
+  // Get current counter value
+    http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment"+String(experimentNumber)+"/totalExperimentValues.json");
+    Serial.println("https://smartbbq-9bfc3.firebaseio.com/experiment"+String(experimentNumber)+"/totalExperimentValues.json"); 
+      httpCode = http.GET();                                     
+      if (httpCode > 0) //Check for the returning code, <0 is an error
+      {
+        counter= http.getString().toInt();
+      }
+      else 
+      {
+        Serial.println("Error on HTTP request");
+      }
+      Serial.println("counter= "+counter);
+      http.end();
+
 
 
   timeClient.begin();
@@ -120,7 +158,7 @@ void loop() {
  
   http.end(); //Free the resources
 
-
+Serial.println("counterloop= "+counter);
 
 
    //POST current counter 
@@ -137,7 +175,7 @@ void loop() {
        httpCode = http.GET();                                     
       if (httpCode > 0) //Check for the returning code, <0 is an error
       {
-        counter= (http.getString().toInt());
+        counter= http.getString().toInt();
       }
       else 
       {
