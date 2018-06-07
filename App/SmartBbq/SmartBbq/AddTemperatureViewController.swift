@@ -1,31 +1,30 @@
 //
-//  NotesViewController.swift
+//  AddTemperatureViewController.swift
 //  SmartBbq
 //
-//  Created by Vigram Mohan on 21/05/2018.
+//  Created by Vigram Mohan on 07/06/2018.
 //  Copyright © 2018 Vigram. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-
-class NotesViewController: UIViewController {
+class AddTemperatureViewController: UIViewController {
 
     var ref: DatabaseReference?
     
-    
     var experimentNumber: Int = 0
     var counterNumber: Int = 0
-    @IBOutlet weak var notesTextView: UITextView!
     
+    @IBOutlet weak var outsideTemperature: UITextField!
+    
+    
+    @IBOutlet weak var insideTemperature: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getExperimentNumber()
         self.getCounterNumber()
-
-        
 
 
         // Do any additional setup after loading the view.
@@ -33,19 +32,17 @@ class NotesViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
         // Dispose of any resources that can be recreated.
     }
     
 
-    @IBAction func addNotesButton_onClick(_ sender: Any)
+    @IBAction func SendReadingsButtonOnClick(_ sender: Any)
     {
-        
-        
         self.getCounterNumber()
 
+        
     }
-
+    
     
     func getExperimentNumber()
     {
@@ -74,9 +71,10 @@ class NotesViewController: UIViewController {
             if let data = snapshot.value as? Int
             {
                 self.counterNumber=data
-                self.setNotesOnFirebase()
+                self.setDataOnFirebase()
                 print("Counter")
                 print(data)
+
             }
             else
             {
@@ -88,10 +86,21 @@ class NotesViewController: UIViewController {
         
     }
     
-    func setNotesOnFirebase()
+    func setDataOnFirebase()
     {
-        let notes=self.notesTextView.text
-        self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counterNumber)").child("Notes").setValue(notes)
+        let outsideTemp = Double(self.outsideTemperature.text!)
+        let insideTemp = Double(self.insideTemperature.text!)
+        self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counterNumber)").child("InsideTemp").setValue(insideTemp)
+        self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counterNumber)").child("OutsideTemp").setValue(outsideTemp)
     }
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }

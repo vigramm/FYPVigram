@@ -100,6 +100,9 @@ void loop() {
         //Initializing http object
   HTTPClient http;
 
+
+
+
   // Connecting to the database to get the total number of experiments conducted as of now
   // We now have exprimentNumber
   http.begin("https://smartbbq-9bfc3.firebaseio.com/TotalExperiments.json"); 
@@ -117,17 +120,24 @@ void loop() {
  
   http.end(); //Free the resources
 
+
+
+
+   //POST current counter 
+        String json="{\n\"totalExperimentValues\" : "+String(counter)+"\n}";
+
+        HTTPRequest("https://smartbbq-9bfc3.firebaseio.com/experiment"+String(experimentNumber)+".json", json, "PATCH");
       
       //Get current time
       timeClient.update();
       String formattedTime = timeClient.getFormattedTime();
       Serial.print(formattedTime);
 
-      http.begin("https://smartbbq-9bfc3.firebaseio.com/CurrentExperimentCounter.json"); 
+      http.begin("https://smartbbq-9bfc3.firebaseio.com/experiment"+String(experimentNumber)+"/totalExperimentValues.json"); 
        httpCode = http.GET();                                     
       if (httpCode > 0) //Check for the returning code, <0 is an error
       {
-        counter= (http.getString().toInt())+1;
+        counter= (http.getString().toInt());
       }
       else 
       {
@@ -142,7 +152,7 @@ void loop() {
       if(WiFi.status()== WL_CONNECTED)
       {   
         float resistanceOfResistors=1000.0; //Voltage of Resistors
-        float voltageReference=2.7; // Input Voltage on rails
+        float voltageReference=3.2; // Input Voltage on rails
         int total=0;
         float temp=0;
 
@@ -164,19 +174,19 @@ void loop() {
         sensorValueTotal=sensorValueTotal/numReadings;
         
         // Finding the average of the x readings
-        temp=temp/numReadings;
+        float finaltemp=temp/numReadings;
         Serial.print("FINAL temp= ");
 
         // This makes the temperature readings accurate
-        float finaltemp=temp+24.0;
-        Serial.print(temp+24.0);
+        
+        Serial.print(temp);
         Serial.println();
 
   
         //POST to the database
         HTTPClient http; 
         //String json="{\n\"Value\" : "+String(finaltemp)+",\n\"Time\" : \""+formattedTime+"\"\n}";
-        String json="{\n\"Value\" : "+String(finaltemp)+",\n\"Time\" : \""+formattedTime+"\",\n\"SensorValue\" : "+String(sensorValueTotal)+"\n}";
+        json="{\n\"Value\" : "+String(finaltemp)+",\n\"Time\" : \""+formattedTime+"\",\n\"SensorValue\" : "+String(sensorValueTotal)+"\n}";
 
 
         Serial.print(json);
@@ -187,10 +197,7 @@ void loop() {
 //        Serial.print(json);
 //        HTTPRequest("https://smartbbq-9bfc3.firebaseio.com/experiment"+String(experimentNumber)+".json", json, "PATCH");
 
-         //POST current counter 
-        json="{\n\"CurrentExperimentCounter\" : "+String(counter)+"\n}";
         
-        HTTPRequest("https://smartbbq-9bfc3.firebaseio.com/.json", json, "PATCH");
 
         
         counter++;

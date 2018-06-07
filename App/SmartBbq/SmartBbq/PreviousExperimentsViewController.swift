@@ -67,7 +67,7 @@ class PreviousExperimentsViewController: UIViewController, UITableViewDelegate, 
         if segue.identifier == "ViewExperimentGraph_Segue" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let controller = segue.destination as! GraphViewController
-                controller.experimentNumber = indexPath.row
+                controller.experimentNumber = indexPath.row+1
             }
         }
         print("123")
@@ -97,7 +97,7 @@ class PreviousExperimentsViewController: UIViewController, UITableViewDelegate, 
     func populateCells()
     {
         print(self.experimentNumber)
-        for i in 0...self.experimentNumber
+        for i in 1...(self.experimentNumber-1)
         {
             print("Experiment \(i)")
             self.experimentList.append("Experiment \(i)")

@@ -112,6 +112,13 @@ class ExperimentViewController: UIViewController {
     
     
     
+    
+    @IBAction func AddTemperatureButtonOnClick(_ sender: Any)
+    {
+        performSegue(withIdentifier: "AddTemperatureVC_segue", sender: self)
+    }
+    
+    
     func totalExperiments()
     {
         ref = Database.database().reference()

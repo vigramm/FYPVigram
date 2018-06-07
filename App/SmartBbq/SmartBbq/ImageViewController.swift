@@ -49,24 +49,7 @@ class ImageViewController: UIViewController {
     @objc func saveButtonOnClick()
     {
         self.getCounterNumber()
-        let imageData = UIImageJPEGRepresentation(self.image, 0.8)
-        
-        let storageRef=Storage.storage().reference(withPath: "experiment\(self.experimentNumber)/\(self.counterNumber).jpg")
-        
-        let uploadMetaData = StorageMetadata()
-        uploadMetaData.contentType = "image/jpeg"
-        
-        let uploadTask = storageRef.putData(imageData!, metadata: uploadMetaData) { (metadata, error) in
-            if(error != nil){
-                print("Error Received! \(error!.localizedDescription)")
-            }
-            else{
-                print ("Upload Complete! Heres some metadata \(metadata!)")
-                let url:String = (metadata?.downloadURL()?.absoluteString)!
-                self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counterNumber)").child("ImageURL").setValue(url)
-            }
-            
-        }
+
         
         //For progress bar
         
@@ -110,21 +93,46 @@ class ImageViewController: UIViewController {
     func getCounterNumber(){
         
         ref = Database.database().reference()
-        self.ref?.child("CurrentExperimentCounter").observe(.value, with: { snapshot in
+
+        self.ref?.child("experiment\(self.experimentNumber)").child("totalExperimentValues").observeSingleEvent(of: .value, with: { snapshot in
+            
             if let data = snapshot.value as? Int
             {
                 self.counterNumber=data
+                self.saveImageOnFirebase()
                 print("Counter")
                 print(data)
             }
             else
             {
-                
+                print("not working")
             }
         }){ (error) in
             print(error.localizedDescription)
         }
         
+    }
+    
+    
+    func saveImageOnFirebase(){
+        let imageData = UIImageJPEGRepresentation(self.image, 0.8)
+        
+        let storageRef=Storage.storage().reference(withPath: "experiment\(self.experimentNumber)/\(self.counterNumber).jpg")
+        
+        let uploadMetaData = StorageMetadata()
+        uploadMetaData.contentType = "image/jpeg"
+        
+        let uploadTask = storageRef.putData(imageData!, metadata: uploadMetaData) { (metadata, error) in
+            if(error != nil){
+                print("Error Received! \(error!.localizedDescription)")
+            }
+            else{
+                print ("Upload Complete! Heres some metadata \(metadata!)")
+                let url:String = (metadata?.downloadURL()?.absoluteString)!
+                self.ref?.child("experiment\(self.experimentNumber)").child("\(self.counterNumber)").child("ImageURL").setValue(url)
+            }
+            
+        }
     }
 
 }

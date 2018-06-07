@@ -14,6 +14,7 @@ class StartExperimentViewController: UIViewController {
 
     var ref: DatabaseReference?
     var experimentNumber: Int = 0
+    var counter: Int = 0
     
     var mode: String=""
     
@@ -49,7 +50,94 @@ class StartExperimentViewController: UIViewController {
     {
         self.ref?.updateChildValues(["TotalExperiments":self.experimentNumber+1])
         self.ref?.updateChildValues(["Mode":"Start"])
-        self.ref?.updateChildValues(["CurrentExperimentCounter":0])
+
+//        let stringExprimentNumberCopy: String = "experiment10"
+//        let stringExprimentNumberPaste: String = "experiment4"
+//
+//
+//
+//        var totalValues: Int = 0
+//        ref = Database.database().reference()
+//        self.ref?.child(stringExprimentNumberCopy).child("totalExperimentValues").observeSingleEvent(of: .value, with: { snapshot in
+//            if let data = snapshot.value as? Int
+//            {
+//                totalValues = data
+//
+//                print(totalValues)
+//
+//                for i in 0...totalValues
+//                {
+//
+//                    self.ref?.child(stringExprimentNumberCopy).child("\(i)").child("Value").observeSingleEvent(of: .value, with: { snapshot in
+//                        if let data = snapshot.value as? Double
+//                        {
+//                            self.ref?.child(stringExprimentNumberPaste).child("\(i)").child("Value").setValue(data)
+//
+//
+//                        }
+//                        else{
+//                            print("not working")
+//                        }
+//
+//                    }){ (error) in
+//                        print(error.localizedDescription)
+//                    }
+//                    self.ref?.child(stringExprimentNumberCopy).child("\(i)").child("ImageURL").observeSingleEvent(of: .value, with: { snapshot in
+//                        if let data = snapshot.value as? String
+//                        {
+//                            self.ref?.child(stringExprimentNumberPaste).child("\(i)").child("ImageURL").setValue(data)
+//
+//
+//                        }
+//                        else{
+//                            print("not working")
+//                        }
+//
+//                    }){ (error) in
+//                        print(error.localizedDescription)
+//                    }
+//                    self.ref?.child(stringExprimentNumberCopy).child("\(i)").child("Notes").observeSingleEvent(of: .value, with: { snapshot in
+//                        if let data = snapshot.value as? String
+//                        {
+//                            self.ref?.child(stringExprimentNumberPaste).child("\(i)").child("Notes").setValue(data)
+//
+//
+//                        }
+//                        else{
+//                            print("not working")
+//                        }
+//
+//                    }){ (error) in
+//                        print(error.localizedDescription)
+//                    }
+//                    self.ref?.child(stringExprimentNumberCopy).child("\(i)").child("Time").observeSingleEvent(of: .value, with: { snapshot in
+//                        if let data = snapshot.value as? String
+//                        {
+//                            self.ref?.child(stringExprimentNumberPaste).child("\(i)").child("Time").setValue(data)
+//                            print(i+86);
+//
+//
+//                        }
+//                        else{
+//                            print("not working")
+//                        }
+//
+//                    }){ (error) in
+//                        print(error.localizedDescription)
+//                    }
+//
+//                }
+//
+//            }
+//            else
+//            {
+//                print("not working")
+//            }
+//        }){ (error) in
+//            print(error.localizedDescription)
+//        }
+//
+//
 
     }
     
