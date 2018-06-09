@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A21148BB2F49249E4D7818D /* Pods_SmartBbq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765C829D12918ECCB729BAAF /* Pods_SmartBbq.framework */; };
+		9C487AA320CC5262000E1399 /* VentSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C487AA220CC5262000E1399 /* VentSettingsViewController.swift */; };
 		9C757B981FCD7BB100B2CB44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C757B971FCD7BB100B2CB44 /* AppDelegate.swift */; };
 		9C757B9A1FCD7BB100B2CB44 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C757B991FCD7BB100B2CB44 /* GraphViewController.swift */; };
 		9C757B9D1FCD7BB100B2CB44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C757B9B1FCD7BB100B2CB44 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		33BE9C6BA00EB37C0F25330C /* Pods-SmartBbq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBbq.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBbq/Pods-SmartBbq.debug.xcconfig"; sourceTree = "<group>"; };
 		3518164C17A5E2E64A9D93A7 /* Pods-SmartBbq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBbq.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBbq/Pods-SmartBbq.release.xcconfig"; sourceTree = "<group>"; };
 		765C829D12918ECCB729BAAF /* Pods_SmartBbq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartBbq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C487AA220CC5262000E1399 /* VentSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentSettingsViewController.swift; sourceTree = "<group>"; };
 		9C757B941FCD7BB100B2CB44 /* SmartBbq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartBbq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C757B971FCD7BB100B2CB44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C757B991FCD7BB100B2CB44 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				9CDB598320B7444200BB2BDE /* PreviousExperimentsViewController.swift */,
 				9C757B991FCD7BB100B2CB44 /* GraphViewController.swift */,
 				9C757B9B1FCD7BB100B2CB44 /* Main.storyboard */,
+				9C487AA220CC5262000E1399 /* VentSettingsViewController.swift */,
 				9CDB598520BC7DEE00BB2BDE /* BalloonMarker.swift */,
 				9CA5219120921E6F00AB83B4 /* StartExperimentViewController.swift */,
 				9CE5CE8D2089246700C0B17A /* ExperimentViewController.swift */,
@@ -381,6 +384,7 @@
 			files = (
 				9CDB598420B7444200BB2BDE /* PreviousExperimentsViewController.swift in Sources */,
 				9CA5219220921E6F00AB83B4 /* StartExperimentViewController.swift in Sources */,
+				9C487AA320CC5262000E1399 /* VentSettingsViewController.swift in Sources */,
 				9CE5CE8E2089246700C0B17A /* ExperimentViewController.swift in Sources */,
 				9CEE453C20812B78000A695A /* ScanTableViewController.swift in Sources */,
 				9CDB598620BC7DEE00BB2BDE /* BalloonMarker.swift in Sources */,

@@ -10,27 +10,26 @@ import UIKit
 import Firebase
 
 
+
 class ExperimentViewController: UIViewController {
     
+
     
-    @IBOutlet weak var batteryView: UIProgressView!
-    
-    @IBOutlet weak var batteryLabel: UILabel!
     
     var experimentNumber: Int = 0
     
     var ref: DatabaseReference?
 
-    var batteryPercent:Float = 0 {
-        didSet {
-            let fractionalProgress = batteryPercent / 100.0
-            let animated = batteryPercent != 0
-            print("123")
-            batteryView.setProgress(fractionalProgress, animated: animated)
-            batteryLabel.text = ("\(batteryPercent)%")
-        }
-    }
-    
+//    var batteryPercent:Float = 0 {
+//        didSet {
+//            let fractionalProgress = batteryPercent / 100.0
+//            let animated = batteryPercent != 0
+//            print("123")
+//            batteryView.setProgress(fractionalProgress, animated: animated)
+//            batteryLabel.text = ("\(batteryPercent)%")
+//        }
+//    }
+//
       override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -43,37 +42,41 @@ class ExperimentViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    
-    func getBatteryInfo(){
-
-    self.ref?.child("batteryPercent").observe(.value, with: { snapshot in
-            
-            if let data = snapshot.value as? Float
-            {
-                self.batteryPercent=data;
-                
-                print(self.batteryPercent)
-            }
-            else
-            {
-                
-            }
-        }){ (error) in
-            print(error.localizedDescription)
-        }
-            
-    
-    }
-    
-    
-    @IBAction func BatteryStatusButtonClick(_ sender: Any) {
-        getBatteryInfo()
 
     }
+    
+ 
+    
+    
+    
+    
+    
+//    func getBatteryInfo(){
+//
+//    self.ref?.child("batteryPercent").observe(.value, with: { snapshot in
+//
+//            if let data = snapshot.value as? Float
+//            {
+//                self.batteryPercent=data;
+//
+//                print(self.batteryPercent)
+//            }
+//            else
+//            {
+//
+//            }
+//        }){ (error) in
+//            print(error.localizedDescription)
+//        }
+//
+//
+//    }
+    
+    
+//    @IBAction func BatteryStatusButtonClick(_ sender: Any) {
+//        getBatteryInfo()
+//
+//    }
 
     func delay(_ delay:Double, closure:@escaping ()->()) {
         DispatchQueue.main.asyncAfter(
@@ -117,6 +120,13 @@ class ExperimentViewController: UIViewController {
     {
         performSegue(withIdentifier: "AddTemperatureVC_segue", sender: self)
     }
+    
+    
+    
+    @IBAction func VentSettingsButtonOnClick(_ sender: Any) {
+        performSegue(withIdentifier: "ventSettings_segue", sender: self)
+    }
+    
     
     
     func totalExperiments()
